@@ -1,12 +1,3 @@
-<!DOCTYPE HMTL>
-<html>
-	<head>
-		<script type="text/javascript" src="serverTime.js"></script>
-		<LINK href="grid.css" rel="stylesheet" type="text/css">
-		<style>
-		</style>
-		<title>CR Monitoring</title>
-	</head>
 	<body>
 		<div class="row">
 			<div class="col-12">
@@ -17,7 +8,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div id="logoPerusahaan">
-					<img class="center-block" src="logoPerusahaan.png">
+					<img class="center-block" src="<?php echo base_url('images/logoPerusahaan.png'); ?>" />
 					<div id="namaPerusahaan">
 						MONITORING CR INFORMATION SYSTEM
 					</div>

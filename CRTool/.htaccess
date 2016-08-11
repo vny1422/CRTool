@@ -7,7 +7,7 @@ SetHandler application/x-httpd-php
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteBase /CRTool/
+	RewriteBase /CRMonitoring/
 	RewriteCond %{REQUEST_URI} ^system.*
 	RewriteRule ^(.*)$ /index.php/$1 [L]
 	RewriteCond %{REQUEST_URI} ^application.*

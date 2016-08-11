@@ -17,6 +17,7 @@
 			</div>
 		</div>
 
+		<form method="post" action="localhost/CRMonitoring/cLogin/auth">
 		<div class="row">
 			<!--<div class="col-12">
 				<div id="form">
@@ -39,6 +40,8 @@
 					</div> 	
 				</div>
 			</div>-->
+			
+			
 			<div class="form-group">
 				<label class="control-label"><img class="center-block" src="<?php echo base_url('images/username.png'); ?>" width="900" alt="" style="max-width:500px; height:auto; max-height:600px;" /> 
 </label>
@@ -50,8 +53,8 @@
 				<input class="form-control" name="password" type="password" placeholder="password...">
 			</div>
 		</div>
-		
-		
+			<input type="submit" name="submit" value="LOGIN" />
+		</form>
 	</body>
 	<script>
 		window.onload = date_time('date_time');

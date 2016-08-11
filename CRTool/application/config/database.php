@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'GIAN\SQLEXPRESS',
+	'hostname' => 'YA1422\SQLEXPRESS',
 	'username' => 'sa',
-	'password' => 'crtool123',
-	'database' => 'SalesOut',
+	'password' => 'crtool',
+	'database' => 'SalesOutKP',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

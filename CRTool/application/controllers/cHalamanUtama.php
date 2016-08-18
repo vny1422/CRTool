@@ -15,8 +15,11 @@ class cHalamanUtama extends CI_Controller {
 		$this->load->helper('url_helper');
 		$data['title'] = 'Home | CR Monitoring';
 		$data['username'] = 'amazingharry95';
+		$data['fullName'] = '';#ini belum
+		$data['email'] = '';#ini email
+		$this->load->view('templates/vMenu');
 		$this->load->view('templates/headAll', $data);
-		$this->load->view('templates/vMenu')
+		$this->load->view('templates/footer');
 	}
 
 

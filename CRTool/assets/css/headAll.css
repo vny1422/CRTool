@@ -18,10 +18,15 @@
 }
 
 .navbar{
-	background-color: #4A86E8;
+	background-color: #b2b2ff;
+    position: fixed;
+    top:0;
+    width: 90%;
+    margin-left: 16%;
 }
 
 strong{
 	font-weight: bold;
 	color: black;
 }
+

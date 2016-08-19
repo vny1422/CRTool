@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="footer-left">
-			<p style="font-size: 18px">Findoct &copy; 2016</p>
+			<p style="font-size: 18px">AXIOO &copy; 2016</p>
 		</div>
 
 	</div>

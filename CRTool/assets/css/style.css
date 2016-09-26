@@ -36,6 +36,7 @@ main .helper span {
   left: 0;
   z-index: 5;
   outline: none;
+  width: 20%;
 }
 .menu .avatar {
   background: rgba(0, 0, 0, 0.1);
@@ -196,5 +197,10 @@ main .helper span {
   }
   .menu:focus .smartphone-menu-trigger {
     pointer-events: none;
+  }
+
+  #mapsales {
+    position: absolute;
+    margin-bottom: 550px;
   }
 }

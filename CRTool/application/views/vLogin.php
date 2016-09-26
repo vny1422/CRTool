@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="container">
-  				<form class="form-horizontal" role="form" action="cHalamanUtama" method="get">
+  				<form class="form-horizontal" role="form" action="./cHalamanUtama" method="get">
     				<div class="input-group input-group-lg">
   						<span class="input-group-addon">
     						<span class="glyphicon glyphicon-user"></span>

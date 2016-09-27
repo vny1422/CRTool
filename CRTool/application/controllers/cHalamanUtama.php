@@ -17,6 +17,7 @@ class cHalamanUtama extends CI_Controller {
 		$data['username'] = 'amazingharry95';
 		$data['fullName'] = '';#ini belum
 		$data['email'] = '';#ini email
+		$data['halamanUtama'] = 1;
 
 		$config = array();
 		$config['center'] = 'Surabaya';

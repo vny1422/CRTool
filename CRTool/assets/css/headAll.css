@@ -30,8 +30,8 @@ strong{
 	color: black;
 }
 
-table th{
-    align: center;
+.table th{
+    text-align: center;
 }
 
 

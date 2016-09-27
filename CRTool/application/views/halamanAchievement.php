@@ -1,8 +1,9 @@
+<main>
 <div class="container">
   <table class="table table-hover" align="center">
     <thead>
       <tr>
-        <th colspan="3">ACHIEVEMENT FOR 6 MONTHS</th>
+        <th colspan="8">ACHIEVEMENT FOR 6 MONTHS</th>
       </tr>
       <tr>
         <th rowspan="2">MONTH</th>
@@ -42,3 +43,4 @@
     </tbody>
   </table>
 </div>
+</main>

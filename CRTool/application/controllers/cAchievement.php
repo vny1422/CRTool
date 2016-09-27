@@ -15,8 +15,10 @@ class cAchievement extends CI_Controller {
     $data['username'] = 'amazingharry95';
     $data['fullName'] = '';#ini belum
     $data['email'] = '';#ini email
-    $this->load->view('templates/vMenu');
+    $data['halamanUtama'] = 0;
     $this->load->view('templates/headAll', $data);
+    $this->load->view('templates/vMenu');
+    
     $this->load->view('halamanAchievement');
     $this->load->view('templates/footer');
   }

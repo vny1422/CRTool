@@ -1,5 +1,18 @@
 <main>
+<h1 id="judulHalaman">MY CR ACHIEVEMENT</h1>
 <div class="container">
+  <p>Choose CR: </p>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">CR'S Name
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nanangtb</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pangvny</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">amazingharry</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Giantcrabi/a></li>
+    </ul>
+  </div>
   <table class="table table-hover" align="center">
     <thead>
       <tr>
@@ -18,27 +31,16 @@
         <th>DEFISIT</th>
         <th>ACHIEVEMENT (%)</th>
       </tr>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+        <td>JANUARY 2016</td>
+        <td>162</td>
+        <td>0</td>
+        <td>169,965,000</td>
+        <td>300,000,000</td>
+        <td>130,035,000</td>
+        <td style="background-color: red">56.65</td>
       </tr>
     </tbody>
   </table>

@@ -81,6 +81,6 @@
  }
 
  body {
-   transform: scale(1.1);
+   /*transform: scale(1.1);*/
    transform-origin: 10% 10%;
 }

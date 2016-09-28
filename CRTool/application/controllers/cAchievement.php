@@ -18,9 +18,8 @@ class cAchievement extends CI_Controller {
     $data['halamanUtama'] = 0;
     $this->load->view('templates/headAll', $data);
     $this->load->view('templates/vMenu');
-    
     $this->load->view('halamanAchievement');
-    $this->load->view('templates/footer');
+    //$this->load->view('templates/footer');
   }
 
 

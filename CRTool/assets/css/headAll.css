@@ -30,6 +30,11 @@ strong{
 	color: black;
 }
 
+.table{
+    width: 85%;
+    float: left;
+}
+
 .table th{
     text-align: center;
 }

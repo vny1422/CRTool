@@ -18,6 +18,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <?php if($halamanUtama == 1) {
     echo $map['js']; } ?>
+  <script type="text/javascript" src="<?php echo base_url("assets/js/map.js"); ?>"></script>
 </head>
 
 <html>

@@ -2,26 +2,20 @@
 
 class User_model extends CI_Model
 {
-	private $table = "dbo.mUser";
 
 	function __construct()
 	{
-		parent::__construct();
+		$this->load->database('default');
 	}
 
-	function sign_in($username, $password)
+	function Sign_in($username, $password)
 	{
-		$this->db->where('UserID', strtolower($username));
-		$this->db->where('Password', md5($password));
-		
-		$query = $this->db->get($this->table);
-		
-		if ($query->num_rows() > 0)
-		{
-			return $query->row();
-		}
-		else
-			return FALSE;
+        $result = $this->db->get_where('dbo.mUser', array('UserID' => $username, 'Password' => $password))->result();
+        if ($result)
+            return $result;
+        else
+            return FALSE;
 	}
+}
 
 ?>

@@ -18,18 +18,18 @@
 		</div>
 
 		<div class="container">
-  				<form class="form-horizontal" role="form" action="./cHalamanUtama" method="get">
+  				<form class="form-horizontal" role="form" action="<?php echo base_url()?>/cLogin/auth" method="post">
     				<div class="input-group input-group-lg">
   						<span class="input-group-addon">
     						<span class="glyphicon glyphicon-user"></span>
   						</span>
-  						<input class="form-control" type="text" placeholder="username...">
+  						<input class="form-control" name="username" type="text" placeholder="username..." value="<?php echo $username?>"/>
 					</div>
 					<div class="input-group input-group-lg">
   						<span class="input-group-addon">
     							<span class="glyphicon glyphicon-lock"></span>
   						</span>
-  						<input class="form-control" type="password" placeholder="password...">
+  						<input class="form-control" type="password" name="password"  placeholder="password...">
 					</div> 
     				<div class="form-group">
       						<div class="col-sm-offset-2 col-sm-5">
@@ -38,6 +38,9 @@
        						 	</div>
       						</div>
     				</div>
+                    <?php if($this->session->flashdata('information') != ""): ?>
+			<?php echo $this->session->flashdata('information'); ?>
+		          <?php endif; ?>
     				<div class="form-group">
       						<div class="col-sm-offset-2 col-sm-10">
         						<button type="submit" class="btn btn-default">LOG IN</button>

@@ -18,7 +18,6 @@ class cDetailActivity extends CI_Controller {
     $data['halamanUtama'] = 0;
     $this->load->view('templates/headAll', $data);
     $this->load->view('templates/vMenu');
-    $this->load->view('halaman');
     //$this->load->view('templates/footer');
   }
 

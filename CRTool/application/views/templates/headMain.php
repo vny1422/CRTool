@@ -7,7 +7,7 @@
 
   <title><?php echo $title ?></title>
 
-  <<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+  <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
   <link rel="stylesheet" href="<?php echo base_url("assets/css/starter-template.css"); ?>" />
   <link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed.css"); ?>" />
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />

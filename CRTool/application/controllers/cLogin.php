@@ -16,7 +16,8 @@ class cLogin extends CI_Controller {
 		$data['title'] = 'CR Monitoring';
 		$this->load->view('templates/headMain', $data);
 		$this->load->helper('url_helper');
-		$this->load->view('halamanLogin');
+		$this->load->view('newVLogin');
+        $this->load->view('templates/footer');
 	}
     
     public function auth()
@@ -42,7 +43,7 @@ class cLogin extends CI_Controller {
           $data['title'] = 'CR Monitoring';
 		  $this->load->view('templates/headMain', $data);
 		  $this->load->helper('url_helper');
-		  $this->load->view('halamanLogin');
+		  $this->load->view('newVLogin');
         }
         
 }

@@ -18,7 +18,7 @@
 }
 
 .navbar{
-	background-color: #b2b2ff;
+	background-color: #ea8735;
     position: fixed;
     top:0;
     width: 90%;
@@ -46,6 +46,24 @@ strong{
 .navbar-right {
     float: right!important;
     margin-right: 15%;
+}
+
+.row{
+    margin-right: -1%;
+    margin-left: 0%;
+}
+
+#mainBody{
+    margin-top: 5%;
+    margin-left: 0%;
+}
+
+#mainMap{
+    margin-top: 0%;
+}
+
+#addMenu{
+    margin-left: 45%;
 }
 
 

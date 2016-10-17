@@ -14,15 +14,21 @@ class cHalamanUtama extends CI_Controller {
 	{
 		//JANGAN LUPA MASALAH OVERLAPPING MARKERS
 		//ini cuma nyoba
-		$data['title'] = 'Home | CR Monitoring';
-		$data['username'] = 'amazingharry95';
-		$data['fullName'] = '';#ini belum
-		$data['email'] = '';#ini email
-		$data['halamanUtama'] = 1;
+		$head['title'] = 'Home | CR Monitoring';
+		$head['halamanUtama'] = 1;
+		$data['username'] = 'amazingharry95'; #dari model
+		$data['fullName'] = 'HARIYANTO';#dari model
+		$data['email'] = 'amazingharry95@gmail.com';#dari model
+		
 
 		$config = array();
 		$config['center'] = 'Surabaya';
 		$config['zoom'] = 'auto';
+		$config['places'] = TRUE;
+		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
+		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
+		$config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
+		$config['cluster'] = TRUE;
 
 		$this->googlemaps->initialize($config);
 
@@ -44,16 +50,37 @@ class cHalamanUtama extends CI_Controller {
 		$this->googlemaps->add_marker($marker);
 
 		$marker = array();
+		$marker['position'] = '-7.252541, 112.750421';
+		$nama_orang = "Budi Pangestu";
+		$nama_toko = "Hi-tech Mall";
+		$checkin_time = "19.00 WIB";
+		$kodePerson = 'D';
+		$marker['infowindow_content'] = "<a href=./cDetailActivity><h3>".$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+		$this->googlemaps->add_marker($marker);
+
+		$marker = array();
+		$marker['position'] = '-7.252541, 112.750421';
+		$nama_orang = "Budi Pangestu";
+		$nama_toko = "Hi-tech Mall";
+		$checkin_time = "19.00 WIB";
+		$kodePerson = 'E';
+		$marker['infowindow_content'] = "<a href=./cDetailActivity><h3>".$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+		$this->googlemaps->add_marker($marker);
+
+		$marker = array();
 		$marker['position'] = '-7.316307, 112.748688';
 		$marker['infowindow_content'		] = '3 - Nanang Taufan';
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=C|FFFF00|000000';
 		$this->googlemaps->add_marker($marker);
 
-		$data['map'] = $this->googlemaps->create_map();
+		$head['map'] = $this->googlemaps->create_map();
 
-		$this->load->view('templates/vMenu');
-		$this->load->view('templates/headAll', $data);
-		$this->load->view('halamanUtama', $data['map']);
+		$this->load->view('templates/newHeadAll', $head);
+		$this->load->view('templates/newVMenu', $data);
+		/*$this->load->view('templates/headAll', $data);*/
+		$this->load->view('newHalamanUtama');
 		$this->load->view('templates/footer');
 	}
 
@@ -70,6 +97,10 @@ class cHalamanUtama extends CI_Controller {
 			$marker['icon'] = base_url('images/caution.png');
 			$this->googlemaps->add_marker($marker);
 		*/
+	}
+
+	public function getOfflineCR(){
+		//buat ambil data-data yg sedang offline --> array('name', 'last place check in', 'time')
 	}
 
 

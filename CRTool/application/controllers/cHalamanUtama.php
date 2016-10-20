@@ -28,7 +28,7 @@ class cHalamanUtama extends CI_Controller {
 		$config['placesAutocompleteInputID'] = 'myPlaceTextBox';
 		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
 		$config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
-		$config['cluster'] = TRUE;
+		$config['cluster'] = FALSE;
 
 		$this->googlemaps->initialize($config);
 
@@ -45,8 +45,9 @@ class cHalamanUtama extends CI_Controller {
 		$nama_toko = "Hi-tech Mall";
 		$checkin_time = "19.00 WIB";
 		$kodePerson = 'B';
-		$marker['infowindow_content'] = "<a href=./cDetailActivity><h3>".$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
 		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+		$marker['animation'] = 'BOUNCE';
 		$this->googlemaps->add_marker($marker);
 
 		$marker = array();
@@ -55,8 +56,9 @@ class cHalamanUtama extends CI_Controller {
 		$nama_toko = "Hi-tech Mall";
 		$checkin_time = "19.00 WIB";
 		$kodePerson = 'D';
-		$marker['infowindow_content'] = "<a href=./cDetailActivity><h3>".$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
 		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+		$marker['animation'] = 'BOUNCE';
 		$this->googlemaps->add_marker($marker);
 
 		$marker = array();
@@ -65,22 +67,25 @@ class cHalamanUtama extends CI_Controller {
 		$nama_toko = "Hi-tech Mall";
 		$checkin_time = "19.00 WIB";
 		$kodePerson = 'E';
-		$marker['infowindow_content'] = "<a href=./cDetailActivity><h3>".$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
 		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+		$marker['animation'] = 'BOUNCE';
 		$this->googlemaps->add_marker($marker);
 
 		$marker = array();
 		$marker['position'] = '-7.316307, 112.748688';
 		$marker['infowindow_content'		] = '3 - Nanang Taufan';
 		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=C|FFFF00|000000';
+		$marker['animation'] = 'BOUNCE';
 		$this->googlemaps->add_marker($marker);
 
 		$head['map'] = $this->googlemaps->create_map();
+		$judul['halaman'] = "CR's POSITION";
 
 		$this->load->view('templates/newHeadAll', $head);
 		$this->load->view('templates/newVMenu', $data);
 		/*$this->load->view('templates/headAll', $data);*/
-		$this->load->view('newHalamanUtama');
+		$this->load->view('newHalamanUtama', $judul);
 		$this->load->view('templates/footer');
 	}
 

@@ -56,10 +56,17 @@ h3 { text-shadow: 0 2px #ccc; }
 }
 
  .modal-header, h4, .close {
-      background-color: #DC143C;
       color:white !important;
       text-align: center;
       font-size: 30px;
+  }
+
+  #modal_warningCriteria{
+    background-color: #DC143C;
+  }
+
+  #modal_addNewStore{
+    background-color: #7FFF00;
   }
 
   .modal-body{
@@ -83,3 +90,23 @@ h3 { text-shadow: 0 2px #ccc; }
     text-align: center;
     font-weight: bold;
   }
+
+  th{
+    text-align: center;
+  }
+
+  td{
+    text-align: left;
+  }
+
+.tiptext {
+.description {
+    display:none;
+    position:relative;
+    width:100px;
+    height:400px;
+} 
+    cursor:pointer;
+}
+
+

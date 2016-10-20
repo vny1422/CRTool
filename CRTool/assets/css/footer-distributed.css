@@ -7,7 +7,11 @@
 	font: normal 16px sans-serif;
 
 	padding: 2.5% 5%;
-	margin-top: 2%;
+	/*margin-top: 2%;*/
+	position: static;
+	bottom: 0px;
+	
+	margin-bottom: 0px;
 }
 
 .footer-distributed .footer-left p{

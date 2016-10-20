@@ -15,22 +15,23 @@
   								<a href="./cHalamanUtama"><img src="<?php echo base_url('images/logoPerusahaan.png'); ?>" /></a>
     							</header>
   							<ul>
-      							<a href="./cAchievement"><li tabindex="0" class="icon-dashboard"><span>ACHIEVEMENT</span></li></a>
-      							<li tabindex="0" class="icon-customers"><span>SALES OUT</span></li>
+      							<a href="./cAchievement" class="tiptext"><li tabindex="0" class="icon-dashboard"><span >ACHIEVEMENT</span><!--<iframe src="./cAchievement" class="description"></iframe>--></li></a>
+      							<a href="./cSalesOut"><li tabindex="0" class="icon-customers"><span>SALES OUT</span></li></a>
     						</ul>
-
                 <ul id="sesuatu">
                     <div id="status">CR'S STATUS</div>
                 </ul>
 					   </nav>
     		</div>
     		<div class="span10">
-      				<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      				<nav class="navbar navbar-ct-blue navbar-fixed-top navbar-transparent" role="navigation">
       						<div class="container"> 
           						<div class="navbar-header">
+                          <div class="brand">
               						<strong class="navbar-brand">CR Monitoring</strong>
+                          </div>
           						</div>
-          					<div class="collapse navbar-collapse">
+          					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               						<ul class="nav navbar-nav navbar-right">
                   						<li class="dropdown">
                       						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -66,7 +67,15 @@
               						</ul>
           					</div>
       						</div>
-              </div>         
+              </nav>
+<script type="text/javascript">
+            $(".tiptext").mouseover(function() {
+    $(this).children(".description").show();
+}).mouseout(function() {
+    $(this).children(".description").hide();
+});
+</script>
+           
 
 
 

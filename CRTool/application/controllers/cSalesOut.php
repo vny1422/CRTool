@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class cDetailActivity extends CI_Controller {
+class cSalesOut extends CI_Controller {
   function __construct()
   {
     parent::__construct();
@@ -11,15 +11,15 @@ class cDetailActivity extends CI_Controller {
 
   public function index()
   {
-    $data['title'] = 'Detail Activity | CR Monitoring';
+    $data['title'] = 'Sales Out | CR Monitoring';
     $data['username'] = 'amazingharry95';
     $data['fullName'] = '';#ini belum
     $data['email'] = '';#ini email
     $data['halamanUtama'] = 0;
-    $judul['halaman'] = 'CR DETAIL ACTIVITY';
+    $judul['halaman'] = "SALES OUT'S REPORT";
     $this->load->view('templates/newHeadAll', $data);
     $this->load->view('templates/newVMenu');
-    $this->load->view('newHalamanDetailActivity', $judul);
+    $this->load->view('newHalamanSalesOut', $judul);
     $this->load->view('templates/footer');
   }
 

@@ -1,29 +1,29 @@
 <div class="row content" id="mainBody">
             <div class="row">
-              <h1 style="text-align: center">JUDUL</h1>
+              <h1 style="text-align: center"><?php echo $halaman; ?></h1>
             </div>
 
             <div class="row" id="mainMap">
-              <div style="width: 100%; margin-left: 0%;"> <?php echo $map['html']; ?></div>
+              <div style="width: 100%; margin-left: 0%; height: 110%;"> <?php echo $map['html']; ?></div>
             </div>
 
             <div class="row" id="addMenu"> 
-              <ul id="navs" data-open="-" data-close="+" style="text-align: center;">
-                  <li><a href="http://www.17sucai.com/">FRESH</a></li>
+              <ul id="navs" data-open="-" data-close="MORE" style="text-align: center;">
+                  <!--<li><a href="http://www.17sucai.com/">FRESH</a></li>-->
                   <li><a data-toggle="modal" data-target="#myModal">WARN</a></li>
                   <li><a data-toggle="modal" data-target="#newStore">NEW</a></li>
               </ul>
             </div>
 
             <div class="row">
-              <table class="table table-sm" style="width: 100%; margin-top: 1%;">
+              <table class="table table-sm table-striped" style="width: 100%; margin-top: 1%;">
                 <thead>
                   <tr>
                     <th>#</th>
                     <th>CR's Name</th>
                     <th>Last Check In</th>
                     <th>Time Check In</th>
-                    </tr>
+                  </tr>
                 </thead>
                 <!--panggil getOfflineCR-->
                 <tbody>
@@ -49,7 +49,7 @@
                   <div class="modal-dialog modal-sm">
               <!-- Modal content-->
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div class="modal-header" id="modal_warningCriteria">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">MINIMUM CHECK FOR ALL DEALERS</h4>
                       </div>                     
@@ -69,9 +69,9 @@
                   <div class="modal-dialog modal-sm">
               <!-- Modal content-->
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div class="modal-header" id ="modal_addNewStore">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">MINIMUM CHECK FOR ALL DEALERS</h4>
+                        <h4 class="modal-title">ADD NEW STORE</h4>
                       </div>                     
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                         <p style="text-align: left;"><input type="text" id="myPlaceTextBox" /></p>

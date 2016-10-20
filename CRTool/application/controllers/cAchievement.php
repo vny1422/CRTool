@@ -13,17 +13,18 @@ class cAchievement extends CI_Controller {
   {
     $data['title'] = 'Home | CR Monitoring';
     $data['username'] = 'amazingharry95';
-    $data['fullName'] = '';#ini belum
-    $data['email'] = '';#ini email
+    $data['fullName'] = 'HARIYANTO';#ini belum
+    $data['email'] = 'amazingharry95@gmail.com';#ini email
     $data['halamanUtama'] = 0;
+    $judulHalaman['halaman'] = "MY CR ACHIEVEMENT";
     $this->load->model('CR_model');
     $query = $this->CR_model->ambil_namaCR();
-    var_dump($query[0]->Name);
-    var_dump($query[0]->CheckInPlace);
-    //$this->load->view('templates/headAll', $data);
-    //$this->load->view('templates/vMenu');
-    //$this->load->view('halamanAchievement');
-    //$this->load->view('templates/footer');
+    //var_dump($query[0]->Name);
+    //var_dump($query[0]->CheckInPlace);
+    $this->load->view('templates/newHeadAll', $data);
+    $this->load->view('templates/newVMenu');
+    $this->load->view('newHalamanAchievement', $judulHalaman);
+    $this->load->view('templates/footer');
   }
 
 

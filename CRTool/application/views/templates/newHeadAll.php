@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="shortcut icon" href="<?php echo base_url('assets/images/logoPerusahaan.ico') ?>"/>
   <title><?php echo $title ?></title>
 
   <style type="text/css">
@@ -99,5 +100,5 @@
  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
   <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
   <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-
+  <link rel="shortcut icon" href="<?php echo base_url('assets/images/logoPerusahaan.ico') ?>"/>
 </head>

@@ -80,13 +80,21 @@ class cHalamanUtama extends CI_Controller {
 		$this->googlemaps->add_marker($marker);
 
 		$head['map'] = $this->googlemaps->create_map();
-		$judul['halaman'] = "CR's POSITION";
-
-		$this->load->view('templates/newHeadAll', $head);
-		$this->load->view('templates/newVMenu', $data);
-		/*$this->load->view('templates/headAll', $data);*/
-		$this->load->view('newHalamanUtama', $judul);
-		$this->load->view('templates/footer');
+		$data['halaman'] = "CR's POSITION";
+        
+        //baru
+        
+		$this->load->view('templates/headAll', $head);
+        $this->load->view('templates/vMenu', $data);
+		$this->load->view('halamanUtama', $data);
+		$this->load->view('templates/newFooter');
+        
+        //lama
+        /*
+        $this->load->view('templates/newHeadAll', $head);
+        $this->load->view('templates/newVMenu', $data);
+        $this->load->view('newHalamanUtama', $data);
+        $this->load->view('templates/footer');*/
 	}
 
 	public function cekBermasalah($kriteria, $jumlahMin){

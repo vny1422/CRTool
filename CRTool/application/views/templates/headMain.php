@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title><?php echo $title ?></title>
 
   <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
@@ -16,4 +15,5 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="<?php echo base_url("assets/css/grid.css"); ?>" />
   <script type="text/javascript" src="<?php echo base_url("assets/js/serverTime.js"); ?>"></script>
+  <link rel="shortcut icon" href="<?php echo base_url('assets/images/logoPerusahaan.ico') ?>"/>
 </head>

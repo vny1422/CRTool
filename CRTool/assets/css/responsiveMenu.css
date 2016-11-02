@@ -69,6 +69,10 @@ h3 { text-shadow: 0 2px #ccc; }
     background-color: #7FFF00;
   }
 
+  #modalOnline{
+    background-color: #3c763d;
+  }
+
   .modal-body{
     text-align: center;
   }

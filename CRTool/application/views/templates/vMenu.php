@@ -102,10 +102,136 @@
         </li>
         <li><a href="./cSalesOut"><i class="fa fa-area-chart text-green"></i> <span>SALES OUT</span></a></li>
         <li class="header" style="text-align: center;font-size: 1.5em;">CR'S STATUS</li>
-        <li ><i class="fa fa-circle-o text-green"></i> <span>ONLINE</span></li>
-        <li style="text-align: center"><i class="fa fa-circle-o text-red"></i> <span>OFFLINE</span></li>
-        <li style="text-align: center"><i class="fa fa-warning text-yellow"></i> <span>WARNING</span></li>
+          <li ><a data-toggle="modal" data-target="#myOnline"><i class="fa fa-circle text-success"></i> <span>ONLINE</span></a></li>
+          <li ><a data-toggle="modal" data-target="#myOffline"><i class="fa fa-circle" style="color: red"></i> <span>OFFLINE</span></a></li>
+          <li ><a data-toggle="modal" data-target="#myWarning"><i class="fa fa-warning text-yellow"></i> <span>WARNING</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
+    
+                    <div id="myOnline" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+              <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color: #3c763d">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">ONLINE CR</h4>
+                      </div>                     
+                      <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
+                                    <div class="box">
+            <div class="box-body no-padding">
+              <table class="table table-condensed">
+                <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>CR's Name</th>
+                        <th>Last Check In</th>
+                        <th>Time Check In</th>
+                      </tr>
+                    </thead>
+                    <!--panggil getOfflineCR-->
+                    <tbody>
+                    <?php
+                    for($x=1; $x<=7; $x++){
+                      echo '<tr>';
+                        echo '<th scope="row">'.$x.'</th>';
+                        echo '<td>ANDI B.</td>';
+                        echo '<td>DAYTONA AXIOO</td>';
+                        echo '<td>19.00'.'WIB'.'</td>';
+                      echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                        <div id="myOffline" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+              <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color: red">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">OFFLINE CR</h4>
+                      </div>                     
+                      <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
+                                    <div class="box">
+            <div class="box-body no-padding">
+              <table class="table table-condensed">
+                <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>CR's Name</th>
+                        <th>Last Check In</th>
+                        <th>Time Check In</th>
+                      </tr>
+                    </thead>
+                    <!--panggil getOfflineCR-->
+                    <tbody>
+                    <?php
+                    for($x=1; $x<=7; $x++){
+                      echo '<tr>';
+                        echo '<th scope="row">'.$x.'</th>';
+                        echo '<td>ANDI B.</td>';
+                        echo '<td>DAYTONA AXIOO</td>';
+                        echo '<td>19.00'.'WIB'.'</td>';
+                      echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                            <div id="myWarning" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+              <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color: #f39c12">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">WARNING OUTLET</h4>
+                      </div>                     
+                      <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
+                                    <div class="box">
+            <div class="box-body no-padding">
+              <table class="table table-condensed">
+                <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>CR's Name</th>
+                        <th>Last Check In</th>
+                        <th>Time Check In</th>
+                      </tr>
+                    </thead>
+                    <!--panggil getOfflineCR-->
+                    <tbody>
+                    <?php
+                    for($x=1; $x<=7; $x++){
+                      echo '<tr>';
+                        echo '<th scope="row">'.$x.'</th>';
+                        echo '<td>ANDI B.</td>';
+                        echo '<td>DAYTONA AXIOO</td>';
+                        echo '<td>19.00'.'WIB'.'</td>';
+                      echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>

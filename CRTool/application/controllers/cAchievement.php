@@ -11,7 +11,7 @@ class cAchievement extends CI_Controller {
 
   public function index()
   {
-    $data['title'] = 'Achievement | CR Monitoring';
+    $head['title'] = 'Achievement | CR Monitoring';
     $data['username'] = 'amazingharry95';
     $data['fullName'] = 'HARIYANTO';#ini belum
     $data['email'] = 'amazingharry95@gmail.com';#ini email

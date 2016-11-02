@@ -16,11 +16,11 @@ class cDetailActivity extends CI_Controller {
     $data['fullName'] = '';#ini belum
     $data['email'] = '';#ini email
     $data['halamanUtama'] = 0;
-    $judul['halaman'] = 'CR DETAIL ACTIVITY';
-    $this->load->view('templates/newHeadAll', $data);
-    $this->load->view('templates/newVMenu');
-    $this->load->view('newHalamanDetailActivity', $judul);
-    $this->load->view('templates/footer');
+    $judul['halaman'] = 'BUDI PANGESTU';
+    $this->load->view('templates/headAll', $data);
+    $this->load->view('templates/vMenu');
+    $this->load->view('halamanDetailActivity', $judul);
+    $this->load->view('templates/newFooter');
   }
 
 

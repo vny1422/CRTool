@@ -5,30 +5,22 @@
       <h1 style="text-align: center">
         <?php echo $halaman; ?>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-                    <ul class="tab">
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTabs(event, 'table')" id="defaultOpen">TABLE</a></li>
-                <li><a href="javascript:void(0)" class="tablinks" onclick="openTabs(event, 'chart')">CHART</a></li>
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#dataTable" data-toggle="tab">TABLE</a>
+                </li>
+                <li><a href="#dataChart" data-toggle="tab">CHART</a>
+                </li>
             </ul>
-            <div class="row">
-              <p id="selectOption">Select CR
-                <select class="selectpicker" data-live-search="true">
-                    <option data-tokens="nanang">Nanang</option>
-                    <option data-tokens="budi">Budi</option>
-                    <option data-tokens="gian">Gian</option>
-                </select>
-              </p>
-            </div>
-            <div class="row">
-              <div id="table" class="tabcontent">
-              <p>
+        </div>
+        
+        <div class="tab-content">
+            <div class="tab-pane active" id="dataTable">
                   <table class="table table-hover" align="center" style="width: 100%">
                     <thead>
                         <tr>
@@ -59,12 +51,11 @@
                         <td style="background-color: red">56.65</td>
                       </tr>
                     </tbody>
-                </table></p>
-              </div>
+                </table>
             </div>
-
-            <div id="chart" class="tabcontent">
-                          <div class="box box-success">
+            
+            <div class="tab-pane active" id="dataChart">
+                   <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Bar Chart</h3>
 
@@ -82,9 +73,8 @@
             <!-- /.box-body -->
           </div>
             </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>
-
-<script type="text/javascript" src="<?php echo base_url("assets/js/halamanAchievement.js"); ?>"></script>
   <!-- /.content-wrapper -->

@@ -19,7 +19,7 @@
   }
   </style>
   <script type="text/javascript" src="<?php echo base_url("assets/js/oms.min.js"); ?>"></script>
-
+  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
   <!--untuk tampil map-->
    <?php if($halamanUtama == 1) {
     echo $map['js']; } ?>
@@ -52,7 +52,6 @@
   <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');?>">
   <!-- untuk tombol MORE supaya jadi bulat-->
   <link rel="stylesheet" href="<?php echo base_url("assets/css/responsiveMenu.css"); ?>" />
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/css/bootstrap-select.min.css">
   <link rel="stylesheet" href="<?php echo base_url("assets/css/halamanAchievement.css"); ?>" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>

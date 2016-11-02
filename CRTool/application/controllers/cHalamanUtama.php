@@ -21,9 +21,13 @@ class cHalamanUtama extends CI_Controller {
 		$data['username'] = 'amazingharry95'; #dari model
 		$data['fullName'] = 'HARIYANTO';#dari model
 		$data['email'] = 'amazingharry95@gmail.com';#dari model
-		$data['list'] = $this->CR_model->list_CR();
+		$data['listonline'] = $this->CR_model->list_CR_online();
+		$data['listoffline'] = $this->CR_model->list_CR_offline();
 		$data['listoutlet'] = array();
-		foreach ($data['list'] as $row):
+		foreach ($data['listonline'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
+		foreach ($data['listoffline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
 		endforeach;
 		$config = array();
@@ -46,7 +50,21 @@ class cHalamanUtama extends CI_Controller {
 
 		$charval = 65;
 		$i = 0;
-		foreach ($data['list'] as $row):
+		foreach ($data['listonline'] as $row):
+			$marker = array();
+			$marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
+			$nama_orang = $row->Name;
+			$nama_toko = $data['listoutlet'][$i]->Name;
+			$checkin_time = $row->CheckInDate;
+			$kodePerson = chr($charval);
+			$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+			$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|00FF00|000000";
+			$marker['animation'] = 'BOUNCE';
+			$this->googlemaps->add_marker($marker);
+			$charval = $charval+1;
+			$i=$i+1;
+		endforeach;
+		foreach ($data['listoffline'] as $row):
 			$marker = array();
 			$marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
 			$nama_orang = $row->Name;

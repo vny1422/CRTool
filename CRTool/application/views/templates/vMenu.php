@@ -13,7 +13,7 @@
     <a href="./cHalamanUtama" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>CR</b>M</span>
-      <!-- logo for regular state and mobile devices 
+      <!-- logo for regular state and mobile devices
       <span class="logo-lg"><b>Admin</b>LTE</span>-->
       <span class="logo-lg"><b>CR</b>Monitoring</span>
     </a>
@@ -45,13 +45,13 @@
               <li class="user-body" style="height: 100px;">
                         <a href="">
                             <i class="fa fa-warning text-yellow"></i>5's WARNING
-                        </a>  
-                    
-                        <a href="">
-                            <i class="fa fa-close text-red"></i>4's BAD ACHIEVEMENT 
                         </a>
-                  
-                  
+
+                        <a href="">
+                            <i class="fa fa-close text-red"></i>4's BAD ACHIEVEMENT
+                        </a>
+
+
                 <!--<div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -109,7 +109,7 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-    
+
                     <div id="myOnline" class="modal fade" role="dialog">
                   <div class="modal-dialog">
               <!-- Modal content-->
@@ -117,7 +117,7 @@
                       <div class="modal-header" style="background-color: #3c763d">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">ONLINE CR</h4>
-                      </div>                     
+                      </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                                     <div class="box">
             <div class="box-body no-padding">
@@ -132,16 +132,20 @@
                     </thead>
                     <!--panggil getOfflineCR-->
                     <tbody>
-                    <?php
-                    for($x=1; $x<=7; $x++){
-                      echo '<tr>';
-                        echo '<th scope="row">'.$x.'</th>';
-                        echo '<td>ANDI B.</td>';
-                        echo '<td>DAYTONA AXIOO</td>';
-                        echo '<td>19.00'.'WIB'.'</td>';
-                      echo '</tr>';
-                    }
-                    ?>
+                      <?php
+                      $val=65;
+                      $i=0;
+                      foreach ($listonline as $row):
+                        echo '<tr>';
+                          echo '<td>'.chr($val).'</td>';
+                          echo '<td>'.$row->Name.'</td>';
+                          echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                          echo '<td>'.$row->CheckInDate.' WIB</td>';
+                        echo '</tr>';
+                        $val = $val + 1;
+                        $i = $i +1;
+                      endforeach;
+                      ?>
                     </tbody>
               </table>
             </div>
@@ -151,7 +155,7 @@
                     </div>
                   </div>
                 </div>
-    
+
                         <div id="myOffline" class="modal fade" role="dialog">
                   <div class="modal-dialog">
               <!-- Modal content-->
@@ -159,7 +163,7 @@
                       <div class="modal-header" style="background-color: red">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">OFFLINE CR</h4>
-                      </div>                     
+                      </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                                     <div class="box">
             <div class="box-body no-padding">
@@ -175,14 +179,16 @@
                     <!--panggil getOfflineCR-->
                     <tbody>
                     <?php
-                    for($x=1; $x<=7; $x++){
+                    foreach ($listoffline as $row):
                       echo '<tr>';
-                        echo '<th scope="row">'.$x.'</th>';
-                        echo '<td>ANDI B.</td>';
-                        echo '<td>DAYTONA AXIOO</td>';
-                        echo '<td>19.00'.'WIB'.'</td>';
+                        echo '<td>'.chr($val).'</td>';
+                        echo '<td>'.$row->Name.'</td>';
+                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$row->CheckInDate.' WIB</td>';
                       echo '</tr>';
-                    }
+                      $val = $val + 1;
+                      $i = $i +1;
+                    endforeach;
                     ?>
                     </tbody>
               </table>
@@ -193,7 +199,7 @@
                     </div>
                   </div>
                 </div>
-    
+
                             <div id="myWarning" class="modal fade" role="dialog">
                   <div class="modal-dialog">
               <!-- Modal content-->
@@ -201,7 +207,7 @@
                       <div class="modal-header" style="background-color: #f39c12">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">WARNING OUTLET</h4>
-                      </div>                     
+                      </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                                     <div class="box">
             <div class="box-body no-padding">

@@ -16,7 +16,7 @@
               <div style="width: 100%; margin-left: 0%; height: 110%;"> <?php echo $map['html']; ?></div>
             </div>
       </div>
-        
+
         <div class="row" id="addMenu">
             <div class="col-xs-12">
                 <ul id="navs" data-open="-" data-close="MORE" style="text-align: center;">
@@ -26,7 +26,7 @@
                 </ul>
             </div>
         </div>
-        
+
           <div id="myModal" class="modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
               <!-- Modal content-->
@@ -34,7 +34,7 @@
                       <div class="modal-header" id="modal_warningCriteria">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">MINIMUM CHECK FOR ALL DEALERS</h4>
-                      </div>                     
+                      </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                         <form action="<?php echo base_url()?>/cHalamanUtama/cekBermasalah" method="post">
                           <p>CHECK-IN MINIMUM </p><select name="kriteria_masalah"><option value="weeks">WEEKS</option><option value="months">MONTHS</option></select><br><input type="number" name="jumlah_minimum" min="0" max="100">
@@ -54,7 +54,7 @@
                       <div class="modal-header" id ="modal_addNewStore">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">ADD NEW STORE</h4>
-                      </div>                     
+                      </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
                         <p style="text-align: left;"><input type="text" id="myPlaceTextBox" /></p>
                       </div>
@@ -65,7 +65,7 @@
                     </div>
                   </div>
                 </div>
-        
+
         <!-- script untuk animasi tombol MORE -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script type="text/javascript">
@@ -79,7 +79,7 @@
                   'transition-delay':""+(50*a)+"ms",
                   '-webkit-transition-delay':""+(50*a)+"ms",
                   'left':(r*Math.cos(90/n*a*(Math.PI/180))),
-                  'top':(-r*Math.sin(90/n*a*(Math.PI/180))) 
+                  'top':(-r*Math.sin(90/n*a*(Math.PI/180)))
                   });
                 }
               }else{
@@ -105,14 +105,28 @@
                     <!--panggil getOfflineCR-->
                     <tbody>
                     <?php
-                    for($x=1; $x<=7; $x++){
+                    $val=65;
+                    $i=0;
+                    foreach ($listonline as $row):
                       echo '<tr>';
-                        echo '<th scope="row">'.$x.'</th>';
-                        echo '<td>ANDI B.</td>';
-                        echo '<td>DAYTONA AXIOO</td>';
-                        echo '<td>19.00'.'WIB'.'</td>';
+                        echo '<td>'.chr($val).'</td>';
+                        echo '<td>'.$row->Name.'</td>';
+                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$row->CheckInDate.' WIB</td>';
                       echo '</tr>';
-                    }
+                      $val = $val + 1;
+                      $i = $i +1;
+                    endforeach;
+                    foreach ($listoffline as $row):
+                      echo '<tr>';
+                        echo '<td>'.chr($val).'</td>';
+                        echo '<td>'.$row->Name.'</td>';
+                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$row->CheckInDate.' WIB</td>';
+                      echo '</tr>';
+                      $val = $val + 1;
+                      $i = $i +1;
+                    endforeach;
                     ?>
                     </tbody>
                   </table>

@@ -2,25 +2,19 @@
 
 class CR_model extends CI_Model
 {
-	
 
+	private $table = 'dbo.mCR';
 	function __construct()
 	{
         $this->load->database('default');
-		
+
 	}
 
-	function ambil_namaCR()
+	function list_CR()
 	{
-		
-		$query = $this->db->get('dbo.mCR')->result();
-		
-		if ($query)
-		{
-			return $query;
-		}
-		else
-			return FALSE;
+
+		return $this->db->get($this->table)->result();
 	}
+
 }
 ?>

@@ -5,9 +5,11 @@ class cHalamanUtama extends CI_Controller {
 	function __construct()
     {
                 parent::__construct();
+								$this->load->model('CR_model');
+								$this->load->model('Outlet_model');
                 $this->load->helper('url_helper');
                 $this->load->library('googlemaps');
-               
+
      }
 
 	public function index()
@@ -19,8 +21,11 @@ class cHalamanUtama extends CI_Controller {
 		$data['username'] = 'amazingharry95'; #dari model
 		$data['fullName'] = 'HARIYANTO';#dari model
 		$data['email'] = 'amazingharry95@gmail.com';#dari model
-		
-
+		$data['list'] = $this->CR_model->list_CR();
+		$data['listoutlet'] = array();
+		foreach ($data['list'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
 		$config = array();
 		$config['center'] = 'Surabaya';
 		$config['zoom'] = 'auto';
@@ -39,56 +44,33 @@ class cHalamanUtama extends CI_Controller {
 		$marker['icon'] = base_url('images/caution.png');
 		$this->googlemaps->add_marker($marker);
 
-		$marker = array();
-		$marker['position'] = '-7.252541, 112.750421';
-		$nama_orang = "Budi Pangestu";
-		$nama_toko = "Hi-tech Mall";
-		$checkin_time = "19.00 WIB";
-		$kodePerson = 'B';
-		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
-		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
-		$marker['animation'] = 'BOUNCE';
-		$this->googlemaps->add_marker($marker);
-
-		$marker = array();
-		$marker['position'] = '-7.252541, 112.750421';
-		$nama_orang = "Budi Pangestu";
-		$nama_toko = "Hi-tech Mall";
-		$checkin_time = "19.00 WIB";
-		$kodePerson = 'D';
-		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
-		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
-		$marker['animation'] = 'BOUNCE';
-		$this->googlemaps->add_marker($marker);
-
-		$marker = array();
-		$marker['position'] = '-7.252541, 112.750421';
-		$nama_orang = "Budi Pangestu";
-		$nama_toko = "Hi-tech Mall";
-		$checkin_time = "19.00 WIB";
-		$kodePerson = 'E';
-		$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
-		$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
-		$marker['animation'] = 'BOUNCE';
-		$this->googlemaps->add_marker($marker);
-
-		$marker = array();
-		$marker['position'] = '-7.316307, 112.748688';
-		$marker['infowindow_content'		] = '3 - Nanang Taufan';
-		$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=C|FFFF00|000000';
-		$marker['animation'] = 'BOUNCE';
-		$this->googlemaps->add_marker($marker);
-
+		$charval = 65;
+		$i = 0;
+		foreach ($data['list'] as $row):
+			$marker = array();
+			$marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
+			$nama_orang = $row->Name;
+			$nama_toko = $data['listoutlet'][$i]->Name;
+			$checkin_time = $row->CheckInDate;
+			$kodePerson = chr($charval);
+			$marker['infowindow_content'] = '<a href="./cDetailActivity" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
+			$marker['icon'] = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=".$kodePerson."|FF0000|000000";
+			$marker['animation'] = 'BOUNCE';
+			$this->googlemaps->add_marker($marker);
+			$charval = $charval+1;
+			$i=$i+1;
+		endforeach;
+		//
 		$head['map'] = $this->googlemaps->create_map();
 		$data['halaman'] = "CR's POSITION";
-        
+
         //baru
-        
+
 		$this->load->view('templates/headAll', $head);
         $this->load->view('templates/vMenu', $data);
 		$this->load->view('halamanUtama', $data);
 		$this->load->view('templates/newFooter');
-        
+
         //lama
         /*
         $this->load->view('templates/newHeadAll', $head);

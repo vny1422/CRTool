@@ -18,7 +18,7 @@ class cAchievement extends CI_Controller {
     $head['halamanUtama'] = 0;
     $judulHalaman['halaman'] = "MY CR ACHIEVEMENT";
     $this->load->model('CR_model');
-    $query = $this->CR_model->ambil_namaCR();
+    //$query = $this->CR_model->ambil_namaCR();
     //var_dump($query[0]->Name);
     //var_dump($query[0]->CheckInPlace);
     $this->load->view('templates/headAll', $head);

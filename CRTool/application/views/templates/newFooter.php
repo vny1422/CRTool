@@ -54,6 +54,26 @@
 
 <!-- untuk search di select -->
 <script src="<?php echo base_url('newAssets/plugins/select2/select2.full.min.js')?>"></script>
+
+<!-- buat table search -->
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+<script src="//code.jquery.com/jquery-1.12.3.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+<!-- DataTables -->
+<script src="<?php echo base_url('newAssets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('newAssets/plugins/datatables/dataTables.bootstrap.min.js')?>"></script>
+<!-- SlimScroll -->
+<script src="<?php echo base_url('newAssets/plugins/slimScroll/jquery.slimscroll.min.js')?>"></script>
+<!-- FastClick -->
+<script src="<?php echo base_url('newAssets/plugins/fastclick/fastclick.js')?>"></script>
+
+
 <script>
   $(function () {
     /* ChartJS

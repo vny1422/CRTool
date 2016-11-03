@@ -28,5 +28,37 @@ class CR_model extends CI_Model
 		return $this->db->get($this->table)->result();
 	}
 
+	function get_history($id)
+	{
+		$this->db->where('IDCr',$id);
+		return $this->db->get('dbo.mHistory')->result();
+	}
+
+	function get_name($id)
+	{
+		$this->db->select('Name');
+		$this->db->where('ID',$id);
+		return $this->db->get($this->table)->row();
+	}
+
+	function list_warn()
+	{
+		$param = $this->input->post('kriteria_masalah',TRUE);
+		if ($param == 'weeks')
+		{
+			$this->db->select('IDOutlet, COUNT(*) AS TotalRecords');
+			$this->db->where('DATEDIFF(DAY, CheckInDate, DATEADD(HOUR, 8, GETDATE())) <', 8);
+			$this->db->group_by('IDOutlet');
+			return $this->db->get('dbo.mHistory')->result();
+		}
+		elseif ($param == 'months')
+		{
+			$this->db->select('IDOutlet, COUNT(*) AS TotalRecords');
+			$this->db->where('DATEDIFF(DAY, CheckInDate, DATEADD(HOUR, 8, GETDATE())) <', 32);
+			$this->db->group_by('IDOutlet');
+			return $this->db->get('dbo.mHistory')->result();
+		}
+	}
+
 }
 ?>

@@ -215,21 +215,27 @@
                 <thead>
                       <tr>
                         <th>#</th>
-                        <th>CR's Name</th>
-                        <th>Last Check In</th>
-                        <th>Time Check In</th>
+                        <th>Outlet Name</th>
+                        <th>Address</th>
                       </tr>
                     </thead>
                     <!--panggil getOfflineCR-->
                     <tbody>
                     <?php
-                    for($x=1; $x<=7; $x++){
-                      echo '<tr>';
-                        echo '<th scope="row">'.$x.'</th>';
-                        echo '<td>ANDI B.</td>';
-                        echo '<td>DAYTONA AXIOO</td>';
-                        echo '<td>19.00'.'WIB'.'</td>';
-                      echo '</tr>';
+                    if (isset($listwarning))
+                    {
+                      $i = 0;
+                      foreach ($listwarning as $row):
+                        if($row->TotalRecords < $thres)
+                        {
+                          echo '<tr>';
+                            echo '<td>'.$row->IDOutlet.'</td>';
+                            echo '<td>'.$listoutletwarning[$i]->Name.'</td>';
+                            echo '<td>'.$listoutletwarning[$i]->Address.'</td>';
+                          echo '</tr>';
+                        }
+                        $i = $i +1;
+                      endforeach;
                     }
                     ?>
                     </tbody>

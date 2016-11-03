@@ -4,7 +4,7 @@
     <section class="content-header">
       <h1 style="text-align: center">
         <?php echo $halaman; ?>
-        <small>29 October 2016</small>
+        <small><?php echo date("d F Y");?></small>
       </h1>
     </section>
 

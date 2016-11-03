@@ -5,6 +5,8 @@ class cSalesOut extends CI_Controller {
   function __construct()
   {
     parent::__construct();
+    $this->load->model('CR_model');
+
     $this->load->model('Outlet_model');
     $this->load->helper('url_helper');      
   }
@@ -16,6 +18,17 @@ class cSalesOut extends CI_Controller {
     $data['fullName'] = '';#ini belum
     $data['email'] = '';#ini email
     $data['halamanUtama'] = 0;
+    $data['listonline'] = $this->CR_model->list_CR_online();
+    $data['listoffline'] = $this->CR_model->list_CR_offline();
+    $data['listoutlet'] = array();
+		foreach ($data['listonline'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
+		foreach ($data['listoffline'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
+    $data['countOnline'] = count($data['listonline']);
+    $data['countOffline'] = count($data['listoffline']);
    /* $data['outletCR'] = $this->Outlet_model->ambilOutletAssignCR(3); //3 ini budi
     $data['listOutlet'] = array();
     foreach ($data['outletCR'] as $row):
@@ -24,7 +37,7 @@ class cSalesOut extends CI_Controller {
     $judul['halaman'] = "SALES OUT'S REPORT";
     
     $this->load->view('templates/headAll', $data);
-    $this->load->view('templates/vMenu');
+    $this->load->view('templates/vMenu', $data);
     $this->load->view('halamanSalesOut', $judul);
     $this->load->view('templates/newfooter');
   }

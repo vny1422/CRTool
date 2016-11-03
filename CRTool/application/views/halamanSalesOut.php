@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="dealer" class="table table-striped table-bordered" cellspacing="0" width="100%">
+              <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>NAME</th>
@@ -49,4 +49,34 @@
     </section>
     <!-- /.content -->
   </div>
+
+<!-- jQuery 2.2.3 -->
+<script src="<?php echo base_url('newAssets/plugins/jQuery/jquery-2.2.3.min.js'); ?>"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="<?php echo base_url('newAssets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url('newAssets/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?php echo base_url('newAssets/plugins/datatables/dataTables.bootstrap.min.js'); ?>"></script>
+<!-- SlimScroll -->
+<script src="<?php echo base_url('newAssets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
+<!-- FastClick -->
+<script src="<?php echo base_url('newAssets/plugins/fastclick/fastclick.js'); ?>"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url('newAssets/dist/js/app.min.js'); ?>"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url('newAssets/dist/js/demo.js'); ?>"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
   <!-- /.content-wrapper -->

@@ -21,15 +21,23 @@
         
         <div class="tab-content">
             <div class="tab-pane active" id="dataTable">
+                <div class="form-group">
+                    <label>Select CR</label>
+                    <select class="form-control select2" style="width: 20%">
+                        <option data-tokens="nanang">Nanang</option>
+                        <option data-tokens="budi">Budi</option>
+                        <option data-tokens="gian">Gian</option>
+                    </select>
+                </div>
                   <table class="table table-hover" align="center" style="width: 100%">
                     <thead>
                         <tr>
-                          <th colspan="8">ACHIEVEMENT FOR 6 MONTHS</th>
+                          <th colspan="8" style="text-align: center">ACHIEVEMENT FOR 6 MONTHS</th>
                         </tr>
                         <tr>
-                          <th rowspan="2">MONTH</th>
-                          <th colspan="2">SUM OF SN</th>
-                          <th colspan="4">SALES OUT</th>
+                          <th rowspan="2" style="text-align: center">MONTH</th>
+                          <th colspan="2" style="text-align: center">SUM OF SN</th>
+                          <th colspan="4" style="text-align: center">SALES OUT</th>
                         </tr>
                         <tr>
                           <th>APPROVE</th>

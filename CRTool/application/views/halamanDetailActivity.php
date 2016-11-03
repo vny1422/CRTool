@@ -13,7 +13,7 @@
         <div class="row">
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <h3 class="profile-username text-center"><?php echo $halaman; ?></h3>
+              <h3 class="profile-username text-center"><?php echo $halaman->Name; ?></h3>
 
               <p class="text-muted text-center"><img src='http://image.flaticon.com/icons/png/512/33/33622.png' style="height: 20px; width: 20px;" /> SALES ID</p>
 
@@ -32,27 +32,26 @@
                           <table class="table table-sm table-striped" style="width: 100%; margin-top: 1%;">
                 <thead>
                   <tr>
-                    <th>DATE</th>
-                    <th>TIME</th>
-                    <th>DEALER</th>
+                    <th>CHECK-IN DATE</th>
                     <th>OUTLET</th>
-                    <th>LOCATION</th>
+                    <th>ADDRESS</th>
                   </tr>
                 </thead>
                 <!--panggil getDetailActivity-->
                 <tbody>
                 <?php
-                for($i=0; $i<7; $i++){
+                $i=0;
+                foreach($list as $row):
                   echo '<tr>';
-                    echo '<th scope="row">20/10/2016</th>';
-                    echo '<td>17.52</td>';
-                    echo '<td>DEALER 1</td>';
-                    echo '<td>TIMUR TECH</td>';
-                    echo '<td>HI TECH MALL</td>';
-                  echo '</tr>';}
+                  echo '<td>'.$row->CheckInDate.' WIB</td>';
+                  echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                  echo '<td>'.$listoutlet[$i]->Address.'</td>';
+                  echo '</tr>';
+                  $i=$i+1;
+                endforeach;
                 ?>
                 </tbody>
-              </table>  
+              </table>
                 </li>
               </ul>
             </div>

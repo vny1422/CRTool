@@ -102,8 +102,8 @@
         </li>
         <li><a href="./cSalesOut"><i class="fa fa-area-chart text-green"></i> <span>SALES OUT</span></a></li>
         <li class="header" style="text-align: center;font-size: 1.5em;">CR'S STATUS</li>
-          <li ><a data-toggle="modal" data-target="#myOnline"><i class="fa fa-circle text-success"></i> <span>ONLINE</span></a></li>
-          <li ><a data-toggle="modal" data-target="#myOffline"><i class="fa fa-circle" style="color: red"></i> <span>OFFLINE</span></a></li>
+          <li ><a data-toggle="modal" data-target="#myOnline"><i class="fa fa-circle text-success"></i> <span><?php echo $countOnline; ?> ONLINE</span></a></li>
+          <li ><a data-toggle="modal" data-target="#myOffline"><i class="fa fa-circle" style="color: red"></i> <span><?php echo $countOffline; ?> OFFLINE</span></a></li>
           <li ><a data-toggle="modal" data-target="#myWarning"><i class="fa fa-warning text-yellow"></i> <span>WARNING</span></a></li>
       </ul>
     </section>

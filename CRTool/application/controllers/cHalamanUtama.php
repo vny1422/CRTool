@@ -30,6 +30,8 @@ class cHalamanUtama extends CI_Controller {
 		foreach ($data['listoffline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
 		endforeach;
+        $data['countOnline'] = count($data['listonline']);
+        $data['countOffline'] = count($data['listoffline']);
 		$config = array();
 		$config['center'] = 'Surabaya';
 		$config['zoom'] = 'auto';

@@ -44,10 +44,6 @@
   <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/morris/morris.css');?>">
   <!-- jvectormap -->
   <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/jvectormap/jquery-jvectormap-1.2.2.css');?>">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/datepicker/datepicker3.css');?>">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/daterangepicker/daterangepicker.css');?>">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');?>">
   <!-- untuk tombol MORE supaya jadi bulat-->
@@ -56,4 +52,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
   <link rel="stylesheet" href="<?php echo base_url('newAssets/plugins/datatables/dataTables.bootstrap.css');?>">
+    
+    <!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>

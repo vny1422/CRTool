@@ -5,8 +5,6 @@ class cAchievement extends CI_Controller {
   function __construct()
     {
                 parent::__construct();
-                $this->load->model('CR_model');
-				$this->load->model('Outlet_model');
                 $this->load->helper('url_helper');
                
      }
@@ -20,6 +18,7 @@ class cAchievement extends CI_Controller {
     $head['halamanUtama'] = 0;
     $judulHalaman['halaman'] = "MY CR ACHIEVEMENT";
     $this->load->model('CR_model');
+    $this->load->model('Outlet_model');
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
     $data['listoutlet'] = array();

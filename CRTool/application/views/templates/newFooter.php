@@ -21,9 +21,7 @@
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('newAssets/bootstrap/js/bootstrap.min.js');?>"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="<?php echo base_url('newAssets/plugins/morris/morris.min.js'); ?>"></script>
+
 <!-- Sparkline -->
 <script src="<?php echo base_url('newAssets/plugins/sparkline/jquery.sparkline.min.js');?>"></script>
 <!-- jvectormap -->
@@ -66,11 +64,13 @@
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>-->
 
 <!-- DataTables 
-<script src="<?php echo base_url('newAssets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
-<script src="<?php echo base_url('newAssets/plugins/datatables/dataTables.bootstrap.min.js')?>"></script>-->
+<script src="<?php echo base_url('newAssets/plugins/datatables/jquery.dataTables.min.js')?>"></script>-->
+<script src="<?php echo base_url('newAssets/plugins/datatables/dataTables.bootstrap.min.js')?>"></script>
 <!-- SlimScroll 
 <script src="<?php echo base_url('newAssets/plugins/slimScroll/jquery.slimscroll.min.js')?>"></script>-->
 <!-- FastClick 
 <script src="<?php echo base_url('newAssets/plugins/fastclick/fastclick.js')?>"></script>-->
+
+
 </body>
 </html>

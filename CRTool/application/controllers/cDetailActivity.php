@@ -28,9 +28,22 @@ class cDetailActivity extends CI_Controller {
     $data['fullName'] = '';#ini belum
     $data['email'] = '';#ini email
     $data['halamanUtama'] = 0;
+    $this->load->model('CR_model');
+    $this->load->model('Outlet_model');
+    $data['listonline'] = $this->CR_model->list_CR_online();
+    $data['listoffline'] = $this->CR_model->list_CR_offline();
+    $data['listoutlet'] = array();
+		foreach ($data['listonline'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
+		foreach ($data['listoffline'] as $row):
+			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
+		endforeach;
+    $data['countOnline'] = count($data['listonline']);
+    $data['countOffline'] = count($data['listoffline']);
     $data['halaman'] = $this->CR_model->get_name($id);
     $this->load->view('templates/headAll', $data);
-    $this->load->view('templates/vMenu');
+    $this->load->view('templates/vMenu', $data);
     $this->load->view('halamanDetailActivity', $data);
     $this->load->view('templates/newFooter');
   }

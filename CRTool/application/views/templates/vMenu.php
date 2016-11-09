@@ -10,7 +10,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="./cHalamanUtama" class="logo">
+    <a href="<?php echo site_url('cHalamanUtama'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>CR</b>M</span>
       <!-- logo for regular state and mobile devices

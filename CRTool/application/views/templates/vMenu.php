@@ -89,18 +89,18 @@
       <!-- Sidebar user panel -->
       <ul class="sidebar-menu">
         <li class="active treeview">
-          <a href="./cAchievement">
+          <a href="<?php echo site_url('cAchievement'); ?>">
             <i class="fa fa-trophy text-yellow"></i> <span>ACHIEVEMENT</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="./cAchievement"><i class="fa fa-circle-o"></i>TABLE</a></li>
+            <li class="active"><a href="<?php echo site_url('cAchievemen'); ?>t"><i class="fa fa-circle-o"></i>TABLE</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i>CHART</a></li>
           </ul>
         </li>
-        <li><a href="./cSalesOut"><i class="fa fa-area-chart text-green"></i> <span>SALES OUT</span></a></li>
+        <li><a href="<?php echo site_url('cSalesOut'); ?>"><i class="fa fa-area-chart text-green"></i> <span>SALES OUT</span></a></li>
         <li class="header" style="text-align: center;font-size: 1.5em;">CR'S STATUS</li>
           <li ><a data-toggle="modal" data-target="#myOnline"><i class="fa fa-circle text-success"></i> <span><?php echo $countOnline; ?> ONLINE</span></a></li>
           <li ><a data-toggle="modal" data-target="#myOffline"><i class="fa fa-circle" style="color: red"></i> <span><?php echo $countOffline; ?> OFFLINE</span></a></li>

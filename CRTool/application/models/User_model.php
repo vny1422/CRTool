@@ -10,7 +10,7 @@ class User_model extends CI_Model
 
 	function Sign_in($username, $password)
 	{
-        $result = $this->db->get_where('dbo.mUser', array('UserID' => $username, 'Password' => $password))->result();
+        $result = $this->db->get_where('dbo.mUser', array('UserID' => $username, 'Password' => $password))->row();
         if ($result)
             return $result;
         else

@@ -6,7 +6,7 @@ class cLogin extends CI_Controller {
     {
                 parent::__construct();
                 $this->load->helper('url_helper');
-               
+
      }
 
 	public function index()
@@ -19,7 +19,7 @@ class cLogin extends CI_Controller {
 		$this->load->view('newVLogin');
         $this->load->view('templates/footer');
 	}
-    
+
     public function auth()
     {
         $data['username'] = "";
@@ -31,9 +31,10 @@ class cLogin extends CI_Controller {
 			$details = $this->User_model->Sign_in($username, $password);
             if($details !== FALSE)
             {
-                $this->session->set_userdata('id_user', $details->id_user);
-				$this->session->set_userdata('id_role', $details->id_role);
-                redirect('cHalamanUtama'); 
+        $this->session->set_userdata('id_user', $details->UserID);
+				$this->session->set_userdata('name', $details->Name);
+				$this->session->set_userdata('email', $details->Email);
+                redirect('cHalamanUtama');
             }
             else
             {
@@ -45,6 +46,6 @@ class cLogin extends CI_Controller {
 		  $this->load->helper('url_helper');
 		  $this->load->view('newVLogin');
         }
-        
+
 }
 }

@@ -6,6 +6,10 @@ class cMaps extends CI_Controller {
             parent::__construct();
             $this->load->helper('url_helper');
             $this->load->library('googlemaps');
+						if ($this->session->userdata('id_user') === NULL)
+						{
+								redirect('cLogin');
+						}
                 //$this->load->model('maps_model');
                 //$this->load->model('Doctors_model');
         }
@@ -57,13 +61,13 @@ class cMaps extends CI_Controller {
             	$places_item['GELAR'] = $identitasdok['Gelar'];
             	$places_item['FOTO'] = $identitasdok['Foto'];
             }
-            
+
 
 			if($idtpraktek === FALSE){
         		$config['onboundschanged'] = 'if (!centreGot) {
 					var mapCentre = map.getCenter();
 					marker_0.setOptions({
-						position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+						position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
 					});
 				}
 				centreGot = true;';
@@ -93,7 +97,7 @@ class cMaps extends CI_Controller {
 			}
 			$data['title'] = 'FINDOCT';
 			$data['map'] = $this->googlemaps->create_map();
-			
+
 			//$this->load->view('templates/headmap', $data);
 			$this->load->view('templates/headeAll');
 			$this->load->view('templates/vMenu');

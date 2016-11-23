@@ -12,10 +12,13 @@
       <!-- Small boxes (Stat box) -->
         <div class="row">
             <label>Select CR</label>
-            <select class="selectpicker" data-show-subtext="true" data-live-search="true" style="width: 20%">
-                <option data-tokens="nanang">Nanang</option>
-                <option data-tokens="budi">Budi</option>
-                <option data-tokens="gian">Gian</option>
+            <select id="cr" name="cr" class="select2_single form-control" tabindex="-1" style = "width:20%">
+                <option></option>
+                <?php
+                foreach($listcr as $row): ?>
+                <option value="<?php echo $row->ID ?>"><?php echo $row->Name ?></option>
+                <?php endforeach; ?>
+
             </select>
         </div>
         <div class="row">
@@ -37,21 +40,10 @@
                 <tr>
                   <th>NAME</th>
                   <th>ADDRESS</th>
-                  <th>COUNTS</th>
+                  <th>JUMLAH KUNJUNGAN</th>
                 </tr>
                 </thead>
-                <tbody>
-                <?php
-                    $namaOutlet = 'Ahatecth';
-                    for($i=0; $i<7; $i++){
-                        echo '<tr>';
-                        echo '<a href="./cSalesOut/barangTerjualOutlet/Ahatech">';
-                        echo '<th scope="row">Ahatech</th>';
-                        echo '</a>';
-                        echo '<td>Plaza Marina</td>';
-                        echo '<td>3</td>';
-                        echo '</tr>'; }       
-                ?>
+                <tbody id="listsales">
                 </tbody>
               </table>
               </div>
@@ -65,11 +57,38 @@
     <!-- /.content -->
   </div>
 
-<script>
-$(document).ready(function(){
-    $('#myTable').dataTable();
+  <script type="text/javascript">
+  $(document).ready(function() {
+var wrapper         = $("#listsales"); //Fields wrapper
+var cr              = $("#cr");
+var table           = $('#myTable').DataTable();
+var value           = $(cr).val();
+
+
+function getTable() {
+    $(wrapper).empty();
+  $.post("<?php echo base_url()?>cSalesOut/getSalesOut", {idcr: value}, function(data, status){
+    var listinput = $.parseJSON(data);
+    for (var key in listinput) {
+      if (listinput.hasOwnProperty(key)) {
+        table.row.add( [
+          listinput[key]["nama"],
+          listinput[key]["address"],
+          listinput[key]["jumlah"]
+        ] ).draw();
+      }
+    }
+  });
+}
+
+
+$(cr).change(function(){
+  table.clear();
+  value = $(this).val();
+  getTable();
 });
-</script>
+});
+  </script>
 
 <script type="text/javascript">
 $(function() {
@@ -95,7 +114,7 @@ $(function() {
     }, cb);
 
     cb(start, end);
-    
+
 });
 </script>
 

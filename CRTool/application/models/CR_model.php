@@ -60,5 +60,14 @@ class CR_model extends CI_Model
 		}
 	}
 
+	function ambil_target($id,$month,$year)
+	{
+		$this->db->select('TargetAmount');
+		$this->db->where('Month =',$month);
+		$this->db->where('Year =',$year);
+		$this->db->where('CRID',$id);
+		return $this->db->get('dbo.mCRTarget')->row();
+	}
+
 }
 ?>

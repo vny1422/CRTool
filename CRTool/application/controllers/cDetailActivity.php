@@ -8,6 +8,10 @@ class cDetailActivity extends CI_Controller {
     $this->load->model('CR_model');
     $this->load->model('Outlet_model');
     $this->load->helper('url_helper');
+    if ($this->session->userdata('id_user') === NULL)
+    {
+        redirect('cLogin');
+    }
 
   }
 

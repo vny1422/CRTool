@@ -10,6 +10,10 @@ class cHalamanUtama extends CI_Controller {
                 $this->load->helper('url_helper');
                 $this->load->library('googlemaps');
 
+					if ($this->session->userdata('id_user') === NULL)
+					{
+							redirect('cLogin');
+					}
      }
 
 	public function index()
@@ -103,6 +107,8 @@ class cHalamanUtama extends CI_Controller {
 		$data['listwarning'] = $this->CR_model->list_warn();
 		$data['listonline'] = $this->CR_model->list_CR_online();
 		$data['listoffline'] = $this->CR_model->list_CR_offline();
+		$data['countOnline'] = count($data['listonline']);
+		$data['countOffline'] = count($data['listoffline']);
 		$data['listoutlet'] = array();
 		foreach ($data['listonline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));

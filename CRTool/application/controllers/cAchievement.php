@@ -6,7 +6,13 @@ class cAchievement extends CI_Controller {
     {
                 parent::__construct();
                 $this->load->helper('url_helper');
-               
+                $this->load->model('CR_model');
+                $this->load->model('Outlet_model');
+                if ($this->session->userdata('id_user') === NULL)
+                {
+                    redirect('cLogin');
+                }
+
      }
 
   public function index()
@@ -30,19 +36,51 @@ class cAchievement extends CI_Controller {
 		endforeach;
     $data['countOnline'] = count($data['listonline']);
     $data['countOffline'] = count($data['listoffline']);
+    $data['listcr'] = $this->CR_model->list_CR();
+
     //$query = $this->CR_model->ambil_namaCR();
     //var_dump($query[0]->Name);
     //var_dump($query[0]->CheckInPlace);
-    $this->load->view('templates/headAll', $head);
+    $judul['halaman'] = "ACHIEVEMENT REPORT";
+
+    $this->load->view('templates/headSalesOut', $data);
     $this->load->view('templates/vMenu', $data);
     $this->load->view('halamanAchievement', $judulHalaman);
-    $this->load->view('templates/newFooter');
-      
+    $this->load->view('templates/footerSalesOut');
+
     /*$this->load->view('templates/newHeadAll', $data);
     $this->load->view('templates/newVMenu');
     $this->load->view('newHalamanAchievement', $judulHalaman);
     $this->load->view('templates/footer');*/
   }
+
+  public function getAchievement()
+  {
+    $idcr = $this->input->post('idcr',TRUE);
+    $data['achievement'] = $this->Outlet_model->achievement($idcr);
+    $data['listapprove'] = array();
+foreach ($data['achievement'] as $row):
+    array_push($data['listapprove'],$this->Outlet_model->count_approve($row->Month,$row->Year));
+endforeach;
+
+$data['listreturn'] = array();
+foreach ($data['achievement'] as $row):
+    array_push($data['listreturn'],$this->Outlet_model->count_return($row->Month,$row->Year));
+endforeach;
+
+$data['listtarget'] = array();
+foreach ($data['achievement'] as $row):
+    array_push($data['listtarget'],$this->CR_model->ambil_target($idcr,$row->Month,$row->Year));
+endforeach;
+    $complete_data = array();
+    $i = 0;
+    foreach ($data['achievement'] as $row):
+      array_push($complete_data, (object) array("month" => $row->MonthName.' '.$row->Year, "approve" => $data['listapprove'][$i]->TotalRecords, "return" => $data['listreturn'][$i]->TotalRecords, "income" => $row->TotalAmount, "target" => $data['listtarget'][$i]->TargetAmount));
+      $i = $i+1;
+    endforeach;
+
+echo json_encode($complete_data);
+}
 
 
 }

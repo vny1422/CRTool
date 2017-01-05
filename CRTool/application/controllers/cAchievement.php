@@ -27,6 +27,8 @@ class cAchievement extends CI_Controller {
     $this->load->model('Outlet_model');
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
+    $data['listwarning'] = $this->CR_model->list_warn();
+
     $data['listoutlet'] = array();
 		foreach ($data['listonline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
@@ -36,6 +38,7 @@ class cAchievement extends CI_Controller {
 		endforeach;
     $data['countOnline'] = count($data['listonline']);
     $data['countOffline'] = count($data['listoffline']);
+    $data['countWarning'] = count($data['listwarning']);
     $data['listcr'] = $this->CR_model->list_CR();
 
     //$query = $this->CR_model->ambil_namaCR();
@@ -43,7 +46,7 @@ class cAchievement extends CI_Controller {
     //var_dump($query[0]->CheckInPlace);
     $judul['halaman'] = "ACHIEVEMENT REPORT";
 
-    $this->load->view('templates/headSalesOut', $data);
+    $this->load->view('templates/headSalesOut', $head);
     $this->load->view('templates/vMenu', $data);
     $this->load->view('halamanAchievement', $judulHalaman);
     $this->load->view('templates/footerSalesOut');

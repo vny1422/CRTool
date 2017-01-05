@@ -10,7 +10,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
+      <!-- Small boxes (Stat box) -->         
       <div class="row">
           <div id="mainMap">
               <div style="width: 100%; margin-left: 0%; height: 110%;"> <?php echo $map['html']; ?></div>
@@ -22,7 +22,7 @@
                 <ul id="navs" data-open="-" data-close="MORE" style="text-align: center;">
                       <!--<li><a href="http://www.17sucai.com/">FRESH</a></li>-->
                       <li><a data-toggle="modal" data-target="#myModal">WARN</a></li>
-                      <li><a data-toggle="modal" data-target="#newStore">NEW</a></li>
+                      <li ><a data-toggle="modal" data-target="#newStore" data-backdrop="static" data-keyboard="false" id="sesuatu">NEW</a></li>
                 </ul>
             </div>
         </div>
@@ -30,41 +30,97 @@
           <div id="myModal" class="modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
               <!-- Modal content-->
+                    <form action="<?php echo base_url()?>cHalamanUtama/cekBermasalah" method="post">
                     <div class="modal-content">
                       <div class="modal-header" id="modal_warningCriteria">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">MINIMUM CHECK FOR ALL DEALERS</h4>
                       </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
-                        <form action="<?php echo base_url()?>/cHalamanUtama/cekBermasalah" method="post">
+                      
                           <p>CHECK-IN MINIMUM </p><select name="kriteria_masalah"><option value="weeks">WEEKS</option><option value="months">MONTHS</option></select><br><input type="number" name="jumlah_minimum" min="0" max="100">
                       </div>
                       <div class="modal-footer">
                         <button id="btn" class="btn btn-primary btn-block" action="submit"><span class="glyphicon glyphicon-floppy-saved"></span> SAVE</button>
-                        </form>
                       </div>
                     </div>
+                    </form>
                   </div>
-                </div>
+          </div>
 
-                  <div id="newStore" class="modal fade" role="dialog">
+          <div id="newStore" class="modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
               <!-- Modal content-->
+                    <form action="<?php echo base_url()?>cHalamanUtama/addNewStore" method="post">
                     <div class="modal-content">
                       <div class="modal-header" id ="modal_addNewStore">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">ADD NEW STORE</h4>
                       </div>
                       <div class="modal-body" id="containSelector" style="padding: 20px 30px;">
-                        <p style="text-align: left;"><input type="text" id="myPlaceTextBox" /></p>
+                        <!--<p style="text-align: left;"><input type="text" id="myPlaceTextBox" /></p>-->
+                            <div class="container-fluid bd-example-row">
+                                <div class="row">
+                             <input type="text" name="nama_lokasi" id="nama_lokasi" placeholder="outlet's name">
+                                </div>
+                                <div class="row">
+                                   <input type="text" name="alamat_lokasi" id="alamat_lokasi" placeholder="outlet's address">               
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        Latitude
+                                        <div class="row">
+                                            <input type="text" name="latitude" id="latitude">
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                              Longitude
+                                            <input type="text" name="longitude" id="longitude">
+                                        </div>
+                                    </div>
+                                </div>
                       </div>
                       <div class="modal-footer">
                         <button id="btn" class="btn btn-primary btn-block" action="submit"><span class="glyphicon glyphicon-floppy-saved"></span> SAVE</button>
-                        </form>
                       </div>
                     </div>
+                    </form>
                   </div>
-                </div>
+          </div>
+        
+        <!-- script new marker alamat -->
+        <script type="text/javascript">
+              var mapOptions = {
+        center: new google.maps.LatLng(0, 0),
+        zoom: 16
+    },
+    map = new google.maps.Map(document.getElementById("mainMap"), mapOptions),
+    marker = new google.maps.Marker({
+        position: map.getCenter(),
+        map: map,
+        title: 'Drag to set position',
+        draggable: true,
+        flat: false
+    });
+    google.maps.event.addListener(marker, 'dragend', function() {
+        latlng = marker.getPosition();
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ latlng.lat() + ',' + latlng.lng() + '&sensor=false';
+        $.get(url, function(data) {
+            if (data.status == 'OK') {
+                map.setCenter(data.results[0].geometry.location);                
+                if (confirm('Do you also want to change location text to ' + data.results[0].formatted_address) === true) {
+                    $('#location').val(data.results[0].formatted_address);
+                    $('#lat').val(data.results[0].geometry.location.lat);
+                    $('#lng').val(data.results[0].geometry.location.lng);
+                }
+            }
+        });
+        
+    });
+    
+        
 
         <!-- script untuk animasi tombol MORE -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -112,7 +168,7 @@
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
                         echo '<td>'.$listoutlet[$i]->Name.'</td>';
-                        echo '<td>'.$row->CheckInDate.' WIB</td>';
+                        echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';
                       echo '</tr>';
                       $val = $val + 1;
                       $i = $i +1;
@@ -122,9 +178,8 @@
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
                         echo '<td>'.$listoutlet[$i]->Name.'</td>';
-                        echo '<td>'.$row->CheckInDate.' WIB</td>';
-                      echo '</tr>';
-                      $val = $val + 1;
+                        echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year,-2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';
+                      echo '</tr>';                      $val = $val + 1;
                       $i = $i +1;
                     endforeach;
                     ?>

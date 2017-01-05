@@ -29,7 +29,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="label label-warning">4</span>
+              <span class="label label-warning"><?php echo $countWarning; ?></span>
               <span class="glyphicon glyphicon-user"></span> 
               <span class="hidden-xs"><?php echo $username; ?></span>
             </a>
@@ -44,12 +44,12 @@
               <!-- Menu Body -->
               <li class="user-body" style="height: 100px;">
                         <a href="">
-                            <i class="fa fa-warning text-yellow"></i>5's WARNING
+                            <i class="fa fa-warning text-yellow"></i><?php echo $countWarning; ?>'s WARNING
                         </a>
 
-                        <a href="">
+                        <!--<a href="">
                             <i class="fa fa-close text-red"></i>4's BAD ACHIEVEMENT
-                        </a>
+                        </a>-->
 
 
                 <!--<div class="row">
@@ -67,7 +67,7 @@
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                  <a href="cLogin" class="btn btn-danger btn-block" style="color: white;">LOG OUT</a>
+                  <a href="<?php echo site_url('cLogin'); ?>" class="btn btn-danger btn-block" style="color: white;">LOG OUT</a>
                 <!--<div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
@@ -97,14 +97,13 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="<?php echo site_url('cAchievemen'); ?>t"><i class="fa fa-circle-o"></i>TABLE</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i>CHART</a></li>
           </ul>
         </li>
         <li><a href="<?php echo site_url('cSalesOut'); ?>"><i class="fa fa-area-chart text-green"></i> <span>SALES OUT</span></a></li>
         <li class="header" style="text-align: center;font-size: 1.5em;">CR'S STATUS</li>
           <li ><a data-toggle="modal" data-target="#myOnline"><i class="fa fa-circle text-success"></i> <span><?php echo $countOnline; ?> ONLINE</span></a></li>
           <li ><a data-toggle="modal" data-target="#myOffline"><i class="fa fa-circle" style="color: red"></i> <span><?php echo $countOffline; ?> OFFLINE</span></a></li>
-          <li ><a data-toggle="modal" data-target="#myWarning"><i class="fa fa-warning text-yellow"></i> <span>WARNING</span></a></li>
+          <li ><a data-toggle="modal" data-target="#myWarning"><i class="fa fa-warning text-yellow"></i> <span><?php echo $countWarning; ?> WARNING</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -18,14 +18,14 @@ class CR_model extends CI_Model
 
 	function list_CR_online()
 	{
-		$this->db->where('DATEDIFF(HOUR, CheckInDate, DATEADD(HOUR, 8, GETDATE())) <', 6);
-		return $this->db->get($this->table)->result();
+        $query = $this->db->query("SELECT *, DATEPART(yyyy, CheckInDate) AS Year, DATEPART(mm, CheckInDate) AS Month, DATEPART(dd, CheckInDate) AS Day, FORMAT(DATEPART(hour,CheckInDate),'00') as Hour, FORMAT(DATEPART(mi,CheckInDate),'00') as Minute FROM dbo.mCR WHERE DATEDIFF(HOUR, CheckInDate, DATEADD(HOUR, 8, GETDATE())) < 6");
+		return $query->result();
 	}
 
 	function list_CR_offline()
 	{
-		$this->db->where('DATEDIFF(HOUR, CheckInDate, DATEADD(HOUR, 8, GETDATE())) >', 6);
-		return $this->db->get($this->table)->result();
+               $query = $this->db->query("SELECT *, DATEPART(yyyy, CheckInDate) AS Year, DATEPART(mm, CheckInDate) AS Month, DATEPART(dd, CheckInDate) AS Day, FORMAT(DATEPART(hour,CheckInDate),'00') as Hour, FORMAT(DATEPART(mi,CheckInDate),'00') as Minute FROM dbo.mCR WHERE DATEDIFF(HOUR, CheckInDate, DATEADD(HOUR, 8, GETDATE())) > 6");
+		return $query->result();
 	}
 
 	function get_history($id)

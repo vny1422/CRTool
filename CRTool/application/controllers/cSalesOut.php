@@ -23,6 +23,8 @@ class cSalesOut extends CI_Controller {
     $data['halamanUtama'] = 0;
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
+    $data['listwarning'] = $this->CR_model->list_warn();
+
     $data['listoutlet'] = array();
 		foreach ($data['listonline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
@@ -32,6 +34,7 @@ class cSalesOut extends CI_Controller {
 		endforeach;
     $data['countOnline'] = count($data['listonline']);
     $data['countOffline'] = count($data['listoffline']);
+    $data['countWarning'] = count($data['listwarning']);
     $data['listcr'] = $this->CR_model->list_CR();
    /* $data['outletCR'] = $this->Outlet_model->ambilOutletAssignCR(3); //3 ini budi
     $data['listOutlet'] = array();
@@ -54,6 +57,8 @@ class cSalesOut extends CI_Controller {
     $data['halamanUtama'] = 0;
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
+    $data['listwarning'] = $this->CR_model->list_warn();
+
     $data['listoutlet'] = array();
 		foreach ($data['listonline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
@@ -63,6 +68,7 @@ class cSalesOut extends CI_Controller {
 		endforeach;
     $data['countOnline'] = count($data['listonline']);
     $data['countOffline'] = count($data['listoffline']);
+    $data['countWarning'] = count($data['listwarning']);
    /* $data['outletCR'] = $this->Outlet_model->ambilOutletAssignCR(3); //3 ini budi
     $data['listOutlet'] = array();
     foreach ($data['outletCR'] as $row):

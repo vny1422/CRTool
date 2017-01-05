@@ -36,6 +36,8 @@ class cDetailActivity extends CI_Controller {
     $this->load->model('Outlet_model');
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
+      $data['listwarning'] = $this->CR_model->list_warn();
+
     $data['listoutlet'] = array();
 		foreach ($data['listonline'] as $row):
 			array_push($data['listoutlet'], $this->Outlet_model->ambil_Outlet($row->CheckInPlace));
@@ -45,6 +47,7 @@ class cDetailActivity extends CI_Controller {
 		endforeach;
     $data['countOnline'] = count($data['listonline']);
     $data['countOffline'] = count($data['listoffline']);
+    $data['countWarning'] = count($data['listwarning']);
     $data['halaman'] = $this->CR_model->get_name($id);
     $this->load->view('templates/headAll', $data);
     $this->load->view('templates/vMenu', $data);

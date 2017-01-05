@@ -11,7 +11,14 @@
 </div>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('newAssets/dist/js/app.min.js');?>"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="<?php echo base_url('newAssets/dist/js/pages/dashboard.js');?>"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url('newAssets/dist/js/demo.js');?>"></script>
+
+
 
 
 </body>

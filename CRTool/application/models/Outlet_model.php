@@ -28,7 +28,7 @@ class Outlet_model extends CI_Model
 	{
 		$query = $this->db->query('SELECT DATEPART(Year, PostDate) Year,DATEPART(Month, PostDate) Month, DateName( month ,  DateAdd(month,(DATEPART(Month, PostDate)),0) -1) MonthName, SUM(SalesInPrice) TotalAmount
 FROM dbo.tSNRegistration
-WHERE DATEDIFF(month, PostDate, GETDATE()) < 7 and DATEPART(Month, PostDate) = 5 and CreateUserID = '.$id.'
+WHERE DATEDIFF(month, PostDate, GETDATE()) < 60 and DATEPART(Month, PostDate) = 5 and CreateUserID = '.$id.'
 GROUP BY DATEPART(Year, PostDate), DATEPART(Month, PostDate)
 ORDER BY Year, Month
 ');
@@ -52,6 +52,15 @@ ORDER BY Year, Month
 		$this->db->where('IsReturn',1);
 		return $this->db->get('dbo.tSNRegistration')->row();
 	}
+    
+    function insertStore($data){
+        if($this->db->insert('dbo.mOutlet', $data)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
 ?>

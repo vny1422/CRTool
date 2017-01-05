@@ -12,11 +12,10 @@
       <!-- Small boxes (Stat box) -->
         <div class="row">
             <label>Select CR</label>
-            <select id="cr" name="cr" class="select2_single form-control" tabindex="-1" style = "width:20%">
-                <option></option>
+            <select id="cr" name="cr" class="selectpicker" data-live-search="true" >
                 <?php
                 foreach($listcr as $row): ?>
-                <option value="<?php echo $row->ID ?>"><?php echo $row->Name ?></option>
+                <option value="<?php echo $row->ID; ?>" data-tokens="<?php echo $row->Name;?>"><?php echo $row->Name; ?></option>
                 <?php endforeach; ?>
 
             </select>
@@ -98,6 +97,8 @@ $(function() {
 
     function cb(start, end) {
         $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+       $('#to').val(start.format('MMMM D, YYYY'));
+       $('#from').val(end.format('MMMM D, YYYY'));
     }
 
     $('#reportrange').daterangepicker({

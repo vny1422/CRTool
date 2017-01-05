@@ -19,8 +19,8 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-<!-- Bootstrap 3.3.6 -->
-<script src="<?php echo base_url('newAssets/bootstrap/js/bootstrap.min.js');?>"></script>
+<!-- Bootstrap 3.3.6 
+<script src="<?php echo base_url('newAssets/bootstrap/js/bootstrap.min.js');?>"></script>-->
 
 <!-- Sparkline -->
 <script src="<?php echo base_url('newAssets/plugins/sparkline/jquery.sparkline.min.js');?>"></script>
@@ -70,7 +70,6 @@
 <script src="<?php echo base_url('newAssets/plugins/slimScroll/jquery.slimscroll.min.js')?>"></script>-->
 <!-- FastClick 
 <script src="<?php echo base_url('newAssets/plugins/fastclick/fastclick.js')?>"></script>-->
-
 
 </body>
 </html>

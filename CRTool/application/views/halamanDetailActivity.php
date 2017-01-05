@@ -42,8 +42,12 @@
                 <?php
                 $i=0;
                 foreach($list as $row):
+                    $str = $row->CheckInDate;
+                    $tanggal = strtotime($str);
+                    $checkin_time = date("d/m/Y h:i",$tanggal);
+                        //date("d/m/Y H:i:s", strtotime($str));
                   echo '<tr>';
-                  echo '<td>'.$row->CheckInDate.' WIB</td>';
+                  echo '<td>'.$checkin_time.' WIB</td>';
                   echo '<td>'.$listoutlet[$i]->Name.'</td>';
                   echo '<td>'.$listoutlet[$i]->Address.'</td>';
                   echo '</tr>';

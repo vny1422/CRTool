@@ -18,9 +18,9 @@ class cAchievement extends CI_Controller {
   public function index()
   {
     $head['title'] = 'Achievement | CR Monitoring';
-    $data['username'] = 'amazingharry95';
-    $data['fullName'] = 'HARIYANTO';#ini belum
-    $data['email'] = 'amazingharry95@gmail.com';#ini email
+    $data['username'] = $this->session->userdata('id_user');
+    $data['fullName'] = $this->session->userdata('name');
+    $data['email'] = $this->session->userdata('email');
     $head['halamanUtama'] = 0;
     $judulHalaman['halaman'] = "MY CR ACHIEVEMENT";
     $this->load->model('CR_model');

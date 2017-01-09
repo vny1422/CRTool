@@ -5,10 +5,11 @@ class cHalamanUtama extends CI_Controller {
 	function __construct()
     {
                 parent::__construct();
-								$this->load->model('CR_model');
-								$this->load->model('Outlet_model');
+				$this->load->model('CR_model');
+				$this->load->model('Outlet_model');
                 $this->load->helper('url_helper');
                 $this->load->library('googlemaps');
+                $this->load->library('session');
 
 					if ($this->session->userdata('id_user') === NULL)
 					{
@@ -22,9 +23,9 @@ class cHalamanUtama extends CI_Controller {
 		//ini cuma nyoba
 		$head['title'] = 'Home | CR Monitoring';
 		$head['halamanUtama'] = 1;
-		$data['username'] = 'amazingharry95'; #dari model
-		$data['fullName'] = 'HARIYANTO';#dari model
-		$data['email'] = 'amazingharry95@gmail.com';#dari model
+		$data['username'] = $this->session->userdata('id_user');
+		$data['fullName'] = $this->session->userdata('name');
+		$data['email'] = $this->session->userdata('email');
 		$data['listonline'] = $this->CR_model->list_CR_online();
 		$data['listoffline'] = $this->CR_model->list_CR_offline();
         $data['listwarning'] = $this->CR_model->list_warn();
@@ -109,9 +110,9 @@ class cHalamanUtama extends CI_Controller {
 		$thres = $data['thres'];
 		$head['title'] = 'Home | CR Monitoring';
 		$head['halamanUtama'] = 1;
-		$data['username'] = 'amazingharry95'; #dari model
-		$data['fullName'] = 'HARIYANTO';#dari model
-		$data['email'] = 'amazingharry95@gmail.com';#dari model
+		$data['username'] = $this->session->userdata('id_user');
+		$data['fullName'] = $this->session->userdata('name');
+		$data['email'] = $this->session->userdata('email');
 		$data['listwarning'] = $this->CR_model->list_warn();
 		$data['listonline'] = $this->CR_model->list_CR_online();
 		$data['listoffline'] = $this->CR_model->list_CR_offline();

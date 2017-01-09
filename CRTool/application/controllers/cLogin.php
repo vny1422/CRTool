@@ -31,7 +31,7 @@ class cLogin extends CI_Controller {
 			$details = $this->User_model->Sign_in($username, $password);
             if($details !== FALSE)
             {
-        $this->session->set_userdata('id_user', $details->UserID);
+                $this->session->set_userdata('id_user', $details->UserID);
 				$this->session->set_userdata('name', $details->Name);
 				$this->session->set_userdata('email', $details->Email);
                 redirect('cHalamanUtama');
@@ -39,7 +39,7 @@ class cLogin extends CI_Controller {
             else
             {
                 $data['username'] = $username;
-				$this->session->set_flashdata('information', 'Wrong username or     password !');
+				$this->session->set_flashdata('information', 'Wrong username or password !');
             }
           $data['title'] = 'CR Monitoring';
 		  $this->load->view('templates/headMain', $data);

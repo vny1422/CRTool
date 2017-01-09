@@ -39,7 +39,7 @@
                 <tr>
                   <th>NAME</th>
                   <th>ADDRESS</th>
-                  <th>JUMLAH KUNJUNGAN</th>
+                  <th>NUMBER OF VISITS</th>
                 </tr>
                 </thead>
                 <tbody id="listsales">

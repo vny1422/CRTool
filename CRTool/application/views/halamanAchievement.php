@@ -47,13 +47,13 @@
                 <th>MONTH</th>
                 <th>APPROVE</th>
                 <th>RETUR</th>
-                <th>INCOME(JUTAAN)</th>
-                <th>TARGET(JUTAAN)</th>
-                <th>DEFISIT(JUTAAN)</th>
+                <th>INCOME(MILLION)</th>
+                <th>TARGET(MILLION)</th>
+                <th>DEFISIT(MILLION)</th>
                 <th>ACHIEVEMENT (%)</th>
               </tr>
               </thead>
-              <tbody id="listachievement">
+              <tbody id="listachievement" style="text-align: right">
               </tbody>
             </table>
             </div>

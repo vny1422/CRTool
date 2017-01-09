@@ -17,9 +17,9 @@ class cSalesOut extends CI_Controller {
   public function index()
   {
     $data['title'] = 'Sales Out | CR Monitoring';
-    $data['username'] = 'amazingharry95';
-    $data['fullName'] = '';#ini belum
-    $data['email'] = '';#ini email
+    $data['username'] = $this->session->userdata('id_user');
+    $data['fullName'] = $this->session->userdata('name');
+    $data['email'] = $this->session->userdata('email');
     $data['halamanUtama'] = 0;
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();
@@ -51,9 +51,9 @@ class cSalesOut extends CI_Controller {
 
   public function barangTerjualOutlet($idOutlet){
     $data['title'] = 'Sales Out | CR Monitoring';
-    $data['username'] = 'amazingharry95';
-    $data['fullName'] = 'HARIYANTO';#ini belum
-    $data['email'] = 'amazingharry95@gmail.com';#ini email
+    $data['username'] = $this->session->userdata('id_user');
+    $data['fullName'] = $this->session->userdata('name');
+    $data['email'] = $this->session->userdata('email');
     $data['halamanUtama'] = 0;
     $data['listonline'] = $this->CR_model->list_CR_online();
     $data['listoffline'] = $this->CR_model->list_CR_offline();

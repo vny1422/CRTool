@@ -168,6 +168,8 @@
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
                         echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        if (intval($row->Hour) < 10) $row->Hour = '0'.$row->Hour;
+                        if (intval($row->Minute) < 10) $row->Minute = '0'.$row->Minute;
                         echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';
                       echo '</tr>';
                       $val = $val + 1;
@@ -178,6 +180,8 @@
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
                         echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        if (intval($row->Hour) < 10) $row->Hour = '0'.$row->Hour;
+                        if (intval($row->Minute) < 10) $row->Minute = '0'.$row->Minute;
                         echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year,-2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';
                       echo '</tr>';                      $val = $val + 1;
                       $i = $i +1;

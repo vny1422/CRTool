@@ -164,10 +164,15 @@
                     $val=65;
                     $i=0;
                     foreach ($listonline as $row):
+                        if(empty($listoutlet[$i]->Name)){
+                            $placeOl = "Not Checkin";
+                        }else{
+                            $placeOl = $listoutlet[$i]->Name;
+                        }
                       echo '<tr>';
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
-                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$placeOl.'</td>';
                         if (intval($row->Hour) < 10) $row->Hour = '0'.$row->Hour;
                         if (intval($row->Minute) < 10) $row->Minute = '0'.$row->Minute;
                         echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';
@@ -176,10 +181,15 @@
                       $i = $i +1;
                     endforeach;
                     foreach ($listoffline as $row):
+                        if(empty($listoutlet[$i]->Name)){
+                            $placeOff = "Not Checkin";
+                        }else{
+                            $placeOff = $listoutlet[$i]->Name;
+                        }
                       echo '<tr>';
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
-                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$placeOff.'</td>';
                         if (intval($row->Hour) < 10) $row->Hour = '0'.$row->Hour;
                         if (intval($row->Minute) < 10) $row->Minute = '0'.$row->Minute;
                         echo '<td>'.$row->Day.'/'.$row->Month.'/'.substr($row->Year,-2).' '.$row->Hour.':'.$row->Minute.' WIB</td>';

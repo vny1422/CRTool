@@ -47,7 +47,9 @@ class cHalamanUtama extends CI_Controller {
 		$config['placesAutocompleteBoundsMap'] = TRUE; // set results biased towards the maps viewport
 		$config['placesAutocompleteOnChange'] = 'alert(\'You selected a place\');';
 		$config['cluster'] = TRUE;
-        $marker['position'] = ($data['listoutlet'][0]->Lat)-0.00009.', '.($data['listoutlet'][0]->Lng);;
+        if(!$data['listoutlet']){
+            $marker['position'] = ($data['listoutlet'][0]->Lat)-0.00009.', '.($data['listoutlet'][0]->Lng);;
+        }
         $marker['draggable'] = true;
         $marker['ondragend'] = 'bukaModal(event.latLng.lat(), event.latLng.lng());';
         $this->googlemaps->add_marker($marker);
@@ -56,11 +58,18 @@ class cHalamanUtama extends CI_Controller {
 
 		$charval = 65;
 		$i = 0;
-		foreach ($data['listonline'] as $row):
+        
+        foreach ($data['listonline'] as $row):
 			$marker = array();
-			$marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
+            
+            if(!empty($data['listoutlet'][$i])){
+                $marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
+                $nama_toko = $data['listoutlet'][$i]->Name;
+            }else{
+                $nama_toko = "Not Check-in";
+            }
+
 			$nama_orang = $row->Name;
-			$nama_toko = $data['listoutlet'][$i]->Name;
             $checkin_time = $row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB';
 			//$checkin_time = $row->CheckInDate;
 			$kodePerson = chr($charval);
@@ -73,10 +82,15 @@ class cHalamanUtama extends CI_Controller {
 		endforeach;
 		foreach ($data['listoffline'] as $row):
 			$marker = array();
-			$marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng;
+            if(!empty($data['listoutlet'][$i])){
+                $marker['position'] = $data['listoutlet'][$i]->Lat.', '.$data['listoutlet'][$i]->Lng; 
+                $nama_toko = $data['listoutlet'][$i]->Name;
+            }else{
+                $nama_toko = "Not Check-In";
+            }
+			
 			$nama_orang = $row->Name;
-			$nama_toko = $data['listoutlet'][$i]->Name;
-         $checkin_time = $row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB';
+            $checkin_time = $row->Day.'/'.$row->Month.'/'.substr($row->Year, -2).' '.$row->Hour.':'.$row->Minute.' WIB';
 			//$checkin_time = $row->CheckInDate;
 			$kodePerson = chr($charval);
 			$marker['infowindow_content'] = '<a href="./cDetailActivity/detail/'.$row->ID.'" target="_blank"><h3>'.$nama_orang."</h3></a><p>Nama toko: ".$nama_toko."</p><p>Check-In Time: ".$checkin_time."</p>";
@@ -85,7 +99,9 @@ class cHalamanUtama extends CI_Controller {
 			$this->googlemaps->add_marker($marker);
 			$charval = $charval+1;
 			$i=$i+1;
-		endforeach;
+		endforeach;    
+        
+		
 		//
 		$head['map'] = $this->googlemaps->create_map();
 		$data['halaman'] = "CR's POSITION";

@@ -135,10 +135,15 @@
                       $val=65;
                       $i=0;
                       foreach ($listonline as $row):
+                        if(empty($listoutlet[$i]->Name)){
+                            $placeOl = "Not Checkin";
+                        }else{
+                            $placeOl = $listoutlet[$i]->Name;
+                        }
                         echo '<tr>';
                           echo '<td>'.chr($val).'</td>';
                           echo '<td>'.$row->Name.'</td>';
-                          echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                          echo '<td>'.$placeOl.'</td>';
                           echo '<td>'.$row->CheckInDate.' WIB</td>';
                         echo '</tr>';
                         $val = $val + 1;
@@ -179,10 +184,15 @@
                     <tbody>
                     <?php
                     foreach ($listoffline as $row):
+                        if(empty($listoutlet[$i]->Name)){
+                            $placeOff = "Not Checkin";
+                        }else{
+                            $placeOff = $listoutlet[$i]->Name;
+                        }
                       echo '<tr>';
                         echo '<td>'.chr($val).'</td>';
                         echo '<td>'.$row->Name.'</td>';
-                        echo '<td>'.$listoutlet[$i]->Name.'</td>';
+                        echo '<td>'.$placeOff.'</td>';
                         echo '<td>'.$row->CheckInDate.' WIB</td>';
                       echo '</tr>';
                       $val = $val + 1;
